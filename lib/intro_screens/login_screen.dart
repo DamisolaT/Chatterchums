@@ -37,7 +37,8 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20,),
-                Text("Email",
+                Text(
+                  "Email",
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.black54

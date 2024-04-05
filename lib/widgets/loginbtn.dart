@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 
-class SignUpBtn extends StatelessWidget {
-  const SignUpBtn({super.key});
+class LoginBtn extends StatelessWidget {
+  const LoginBtn({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class SignUpBtn extends StatelessWidget {
           ]
         ),
         child: Text(
-          "Sign up",
+          "Login",
         style: TextStyle(
           color: Colors.white,
           fontSize: 20,

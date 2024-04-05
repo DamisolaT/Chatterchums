@@ -1,5 +1,6 @@
 
 import 'package:chatterchums/widgets/loginbtn.dart';
+import 'package:chatterchums/widgets/signupbtn.dart';
 import 'package:chatterchums/widgets/social_login.dart';
 import 'package:chatterchums/widgets/textformchatter.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +8,9 @@ import 'package:flutter/material.dart';
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController phoneNumberController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController reEnterPasswordController = TextEditingController();
 
 
 
@@ -35,7 +38,8 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20,),
-                Text("Email",
+                Text(
+                  "Email",
                   style: TextStyle(
                       fontSize: 20,
                       color: Colors.black54
@@ -60,10 +64,10 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 ////Password Input
                 TextFormChatter(
-                  controller: passwordController,
+                  controller: phoneNumberController,
                   text: "Enter phone number",
-                  textInputType: TextInputType.text,
-                  obscure: true,
+                  textInputType: TextInputType.phone,
+                  obscure: false,
                 ),
                 SizedBox(height: 20,),
                 Text(
@@ -88,7 +92,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                 ),
                 TextFormChatter(
-                  controller: passwordController,
+                  controller: reEnterPasswordController,
                   text: "Re-enter password",
                   textInputType: TextInputType.text,
                   obscure: true,

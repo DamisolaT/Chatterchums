@@ -1,10 +1,11 @@
 
 
 
+import 'package:chatterchums/intro_screens/OTP%20Verification.dart';
 import 'package:flutter/material.dart';
 
-class LoginBtn extends StatelessWidget {
-  const LoginBtn({super.key});
+class SignUpBtn extends StatelessWidget {
+  const SignUpBtn({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +24,21 @@ class LoginBtn extends StatelessWidget {
               )
             ]
         ),
-        child: Text(
-          "Login",
-          style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w600
+        child: Center(
+          child: TextButton(
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => MyOtp()
+              ));
+            },
+            child: Text(
+              "Sign up",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600
+              ),
+            ),
           ),
         ),
       ),

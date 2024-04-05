@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class TextFormChatter extends StatelessWidget {
-  const TextFormChatter({super.key,
+  const TextFormChatter({
+    Key? key,
     required this.controller,
     required this.text,
     required this.textInputType,
-    required this.obscure});
+    required this.obscure
+  }): super(key: key);
 
   final TextEditingController controller;
   final String text;
@@ -15,7 +17,7 @@ class TextFormChatter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
+      height: 50,
       padding: EdgeInsets.only(top: 3, left: 15),
       decoration: BoxDecoration(
         color: Colors.white,
@@ -27,18 +29,22 @@ class TextFormChatter extends StatelessWidget {
           )
         ]
       ),
-      child: TextFormField(
-        controller: controller,
-        keyboardType: TextInputType.emailAddress,
-        obscureText: true,
-        decoration: InputDecoration(
-          hintText: text,
-          suffixIcon: Icon(Icons.remove_red_eye_outlined),
-          border: InputBorder.none,
-          contentPadding: EdgeInsets.all(0),
-          hintStyle: TextStyle(
-            height: 1
-          )
+      child: Center(
+        child: TextFormField(
+          controller: controller,
+          keyboardType: textInputType,
+          obscureText: obscure,
+          decoration: InputDecoration(
+            hintText: text,
+            suffixIcon: obscure ? Icon(Icons.remove_red_eye_outlined): null,
+            border: InputBorder.none,
+            contentPadding: EdgeInsets.all(0),
+            hintStyle: const TextStyle(
+                height: 1,
+                fontSize: 12,
+              color: Colors.black45
+            )
+          ),
         ),
       ),
     );
