@@ -1,4 +1,4 @@
-import 'package:chatterchums/widgets/spash_screen_card.dart';
+import 'package:chatterchums/intro_screens_widgets/spash_screen_card.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

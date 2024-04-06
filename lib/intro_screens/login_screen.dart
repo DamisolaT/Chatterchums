@@ -1,9 +1,9 @@
 
 import 'package:chatterchums/intro_screens/signup_screen.dart';
-import 'package:chatterchums/widgets/loginbtn.dart';
-import 'package:chatterchums/widgets/signupbtn.dart';
-import 'package:chatterchums/widgets/social_login.dart';
-import 'package:chatterchums/widgets/textformchatter.dart';
+import 'package:chatterchums/intro_screens_widgets/loginbtn.dart';
+import 'package:chatterchums/intro_screens_widgets/social_login.dart';
+import 'package:chatterchums/intro_screens_widgets/textformchatter.dart';
+
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
