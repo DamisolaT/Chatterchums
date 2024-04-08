@@ -53,7 +53,8 @@ class _MyOtpState extends State<MyOtp> {
                       fillColor: Colors.white,
                       filled: true
                   ),
-                ),),
+                ),
+              ),
 
               SizedBox(height: 150,),
               SizedBox(

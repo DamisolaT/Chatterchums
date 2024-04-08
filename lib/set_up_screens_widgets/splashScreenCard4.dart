@@ -52,42 +52,37 @@ class SplashScreenCard4 extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 30), // Add additional space before the button
-              if (showSkipButton && !_isFirstScreen(context))
+              if (showSkipButton)
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        // Handle next button pressed
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Theme.of(context).colorScheme.primary,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-                        child: Text(
-                          buttonText,
-                          style: TextStyle(color: Colors.white),
+                    if (!_isFirstScreen(context)) // Display button only on non-first screens
+                      ElevatedButton(
+                        onPressed: () {
+                          // Handle next button pressed
+                        },
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Theme.of(context).colorScheme.primary,
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                          child: Text(
+                            buttonText,
+                            style: TextStyle(color: Colors.white),
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 10),
-                    IconButton(
-                      onPressed: () {
-                        // Handle next arrow icon pressed
-                      },
-                      icon: Icon(Icons.arrow_forward),
-                      color: Colors.black,
-                    ),
+                    if (_isFirstScreen(context)) // Display arrow only on first screen
+                      IconButton(
+                        onPressed: () {
+                          // Handle next arrow icon pressed
+                        },
+                        icon: Icon(Icons.arrow_forward),
+                        color: Colors.black,
+                      ),
+
+
                   ],
-                ),
-              if (showSkipButton && _isFirstScreen(context))
-                IconButton(
-                  onPressed: () {
-                    // Handle next arrow icon pressed
-                  },
-                  icon: Icon(Icons.arrow_forward),
-                  color: Colors.black,
                 ),
             ],
           ),

@@ -1,6 +1,7 @@
 import 'package:chatterchums/intro_screens/login_screen.dart';
 import 'package:chatterchums/intro_screens/onboarding_screen.dart';
 import 'package:chatterchums/intro_screens/splash_screen1.dart';
+import 'package:chatterchums/set_up_screens/registration1.dart';
 import 'package:chatterchums/set_up_screens/splash_screen_4.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: SplashScreen4()
+      home:Registration1()
     );
   }
 }

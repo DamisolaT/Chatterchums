@@ -1,4 +1,5 @@
 
+import 'package:chatterchums/set_up_screens/registration1.dart';
 import 'package:chatterchums/set_up_screens_widgets/splashScreenCard4.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -45,7 +46,7 @@ class _SplashScreen1State extends State<SplashScreen4> {
                       );
                     },
                     showSkipButton: true,
-                    isFirstScreen: true, // Don't show Skip button on the first screen
+                    isFirstScreen: false, // Don't show Skip button on the first screen
                   ),
                   SplashScreenCard4(
                     image: "assets/images/parent_img.png",
@@ -70,7 +71,11 @@ class _SplashScreen1State extends State<SplashScreen4> {
                         "sed do eiusmod tempor incididunt ut labore",
                     title: "Parental Control",
                     buttonText: "Skip",
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => Registration1()
+                      ));
+                    },
                     showSkipButton: true,
                     isFirstScreen: false, // Don't show Skip button on the third screen
                   )
