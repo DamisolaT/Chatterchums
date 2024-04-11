@@ -1,4 +1,4 @@
-import 'package:chatterchums/categories_screen/contents_body.dart';
+import 'package:chatterchums/menu_screens/contents_body.dart';
 import 'package:chatterchums/menu_screens/main_home_screen.dart';
 import 'package:flutter/material.dart';
 

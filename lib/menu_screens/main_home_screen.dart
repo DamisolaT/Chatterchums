@@ -1,4 +1,4 @@
-import 'package:chatterchums/categories_screen/contents_section.dart';
+import 'package:chatterchums/menu_screens/contents_section.dart';
 import 'package:chatterchums/menu_screens_widgets/popular_categories.dart';
 import 'package:chatterchums/menu_screens_widgets/popular_categories_2.dart';
 import 'package:flutter/cupertino.dart';
@@ -112,7 +112,7 @@ class MainHomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 30,),
+            SizedBox(height: 20,),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -143,7 +143,7 @@ class MainHomeScreen extends StatelessWidget {
 
               ],
             ),
-            SizedBox(height: 30,),
+            SizedBox(height: 20,),
             Row(
               children: [
                 Expanded(
@@ -155,7 +155,7 @@ class MainHomeScreen extends StatelessWidget {
                     PopularCategories2()),
               ],
             ),
-            SizedBox(height: 50,),
+            SizedBox(height: 20,),
             Text("Learn and win",
             style: TextStyle(
               fontSize: 20,
