@@ -29,8 +29,8 @@ class AccountSettingsPage extends StatelessWidget {
                   Icon(Icons.password,color: Colors.black,),
                   SizedBox(width: 8,),
                   Text("Change Password",style: TextStyle(fontSize: 18),),
-                  SizedBox(width: 120,),
-                  Icon(Icons.arrow_forward_ios)
+                  SizedBox(width: 100,),
+                  Icon(Icons.arrow_right, size: 40,)
                 ],
               ),
               Divider(),
@@ -40,8 +40,8 @@ class AccountSettingsPage extends StatelessWidget {
                   Icon(Icons.location_on,color: Colors.black,),
                   SizedBox(width: 8,),
                   Text("Address",style: TextStyle(fontSize: 18),),
-                  SizedBox(width: 200,),
-                  Icon(Icons.arrow_forward_ios)
+                  SizedBox(width: 185,),
+                  Icon(Icons.arrow_right, size: 40,)
                 ],
               ),
               Divider(),
@@ -51,8 +51,8 @@ class AccountSettingsPage extends StatelessWidget {
                   Icon(Icons.email,color: Colors.black,),
                   SizedBox(width: 8,),
                   Text("Email",style: TextStyle(fontSize: 18),),
-                  SizedBox(width:215,),
-                  Icon(Icons.arrow_forward_ios)
+                  SizedBox(width:205,),
+                  Icon(Icons.arrow_right, size: 40,)
                 ],
               ),
               Divider(),
@@ -62,8 +62,8 @@ class AccountSettingsPage extends StatelessWidget {
                   Icon(Icons.delete,color: Colors.black,),
                   SizedBox(width: 8,),
                   Text("Delete Account",style: TextStyle(fontSize: 18),),
-                  SizedBox(width: 135,),
-                  Icon(Icons.arrow_forward_ios)
+                  SizedBox(width: 130,),
+                  Icon(Icons.arrow_right, size: 40,)
                 ],
               ),
               Divider(),
@@ -73,8 +73,8 @@ class AccountSettingsPage extends StatelessWidget {
                   Icon(Icons.logout,color: Colors.black,),
                   SizedBox(width: 8,),
                   Text("Log out",style: TextStyle(fontSize: 18),),
-                  SizedBox(width: 195,),
-                  Icon(Icons.arrow_forward_ios)
+                  SizedBox(width: 190,),
+                  Icon(Icons.arrow_right, size: 40,)
                 ],
               ),
               Divider(),

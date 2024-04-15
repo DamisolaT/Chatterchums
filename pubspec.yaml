@@ -38,6 +38,7 @@ dependencies:
   flutter_svg:
   smooth_page_indicator: ^1.1.0
   get: ^4.6.6
+  flutter_screenutil: ^5.9.0
 
 
 dev_dependencies:

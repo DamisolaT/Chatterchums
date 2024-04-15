@@ -20,10 +20,13 @@ import 'package:chatterchums/set_up_screens/registration1.dart';
 import 'package:chatterchums/set_up_screens/splash_screen_4.dart';
 import 'package:chatterchums/settings_screens/account_settings.dart';
 import 'package:chatterchums/settings_screens/profile.dart';
+import 'package:chatterchums/settings_screens/profile_page.dart';
 import 'package:chatterchums/settings_screens/settings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'menu_screens/alphabets2.dart';
+import 'settings_screens/change_password.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,6 +38,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
+    ScreenUtil.init(
+      context,
+      designSize: const Size(430, 932),
+    );
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
@@ -43,7 +51,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:AccountSettingsPage()
+      home:ChangePassword()
     );
   }
 }
