@@ -46,7 +46,6 @@ class AddressScreen extends StatelessWidget {
                   SizedBox(height: 10,),
                  AddressTextForm(
                       controller: textEditingController ,
-
                       textInputType: TextInputType.text,
                       ),
                   SizedBox(height: 10,),

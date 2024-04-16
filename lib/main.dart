@@ -19,6 +19,8 @@ import 'package:chatterchums/menu_screens/simplewords.dart';
 import 'package:chatterchums/set_up_screens/registration1.dart';
 import 'package:chatterchums/set_up_screens/splash_screen_4.dart';
 import 'package:chatterchums/settings_screens/account_settings.dart';
+import 'package:chatterchums/settings_screens/add_card.dart';
+import 'package:chatterchums/settings_screens/leaderboard.dart';
 import 'package:chatterchums/settings_screens/profile.dart';
 import 'package:chatterchums/settings_screens/profile_page.dart';
 import 'package:chatterchums/settings_screens/settings.dart';
@@ -51,7 +53,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:ChangePassword()
+      home:LeaderBoardScreen()
     );
   }
 }
