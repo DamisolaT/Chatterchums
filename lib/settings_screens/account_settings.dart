@@ -1,5 +1,4 @@
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AccountSettingsPage extends StatelessWidget {
@@ -29,7 +28,7 @@ class AccountSettingsPage extends StatelessWidget {
                   Icon(Icons.password,color: Colors.black,),
                   SizedBox(width: 8,),
                   Text("Change Password",style: TextStyle(fontSize: 18),),
-                  SizedBox(width: 100,),
+                   Spacer(),
                   Icon(Icons.arrow_right, size: 40,)
                 ],
               ),
@@ -40,7 +39,7 @@ class AccountSettingsPage extends StatelessWidget {
                   Icon(Icons.location_on,color: Colors.black,),
                   SizedBox(width: 8,),
                   Text("Address",style: TextStyle(fontSize: 18),),
-                  SizedBox(width: 185,),
+                  Spacer(),
                   Icon(Icons.arrow_right, size: 40,)
                 ],
               ),
@@ -51,7 +50,7 @@ class AccountSettingsPage extends StatelessWidget {
                   Icon(Icons.email,color: Colors.black,),
                   SizedBox(width: 8,),
                   Text("Email",style: TextStyle(fontSize: 18),),
-                  SizedBox(width:205,),
+                  Spacer(),
                   Icon(Icons.arrow_right, size: 40,)
                 ],
               ),
@@ -62,7 +61,7 @@ class AccountSettingsPage extends StatelessWidget {
                   Icon(Icons.delete,color: Colors.black,),
                   SizedBox(width: 8,),
                   Text("Delete Account",style: TextStyle(fontSize: 18),),
-                  SizedBox(width: 130,),
+                  Spacer(),
                   Icon(Icons.arrow_right, size: 40,)
                 ],
               ),
@@ -73,7 +72,7 @@ class AccountSettingsPage extends StatelessWidget {
                   Icon(Icons.logout,color: Colors.black,),
                   SizedBox(width: 8,),
                   Text("Log out",style: TextStyle(fontSize: 18),),
-                  SizedBox(width: 190,),
+                  Spacer(),
                   Icon(Icons.arrow_right, size: 40,)
                 ],
               ),

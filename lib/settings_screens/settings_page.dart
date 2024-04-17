@@ -29,7 +29,7 @@
                       Icon(Icons.people,color: Colors.black,),
                        SizedBox(width: 8,),
                        Text("Profile",style: TextStyle(fontSize: 18),),
-                      SizedBox(width: 200,),
+                      Spacer(),
                       Icon(Icons.arrow_forward_ios)
                     ],
               ),
@@ -40,7 +40,7 @@
                         Icon(Icons.person,color: Colors.black,),
                         SizedBox(width: 8,),
                         Text("Account Settings",style: TextStyle(fontSize: 18),),
-                        SizedBox(width: 110,),
+                        Spacer(),
                         Icon(Icons.arrow_forward_ios)
                       ],
                     ),
@@ -51,7 +51,7 @@
                         Icon(Icons.call,color: Colors.black,),
                         SizedBox(width: 8,),
                         Text("Notification preferences",style: TextStyle(fontSize: 18),),
-                        SizedBox(width:50,),
+                        Spacer(),
                         Icon(Icons.arrow_forward_ios)
                       ],
                     ),
@@ -62,7 +62,7 @@
                         Icon(Icons.language,color: Colors.black,),
                         SizedBox(width: 8,),
                         Text("Language settings",style: TextStyle(fontSize: 18),),
-                        SizedBox(width: 95,),
+                         Spacer(),
                         Icon(Icons.arrow_forward_ios)
                       ],
                     ),
@@ -73,7 +73,7 @@
                         Icon(Icons.details,color: Colors.black,),
                         SizedBox(width: 8,),
                         Text("Card details",style: TextStyle(fontSize: 18),),
-                        SizedBox(width: 150,),
+                         Spacer(),
                         Icon(Icons.arrow_forward_ios)
                       ],
                     ),
@@ -84,7 +84,7 @@
                         Icon(Icons.leaderboard,color: Colors.black,),
                         SizedBox(width: 8,),
                         Text("Leaderboard",style: TextStyle(fontSize: 18),),
-                        SizedBox(width: 145,),
+                         Spacer(),
                         Icon(Icons.arrow_forward_ios)
                       ],
                     ),
@@ -95,7 +95,7 @@
                         Icon(Icons.language,color: Colors.black,),
                         SizedBox(width: 8,),
                         Text("About the app",style: TextStyle(fontSize: 18),),
-                        SizedBox(width: 130,),
+                          Spacer(),
                         Icon(Icons.arrow_forward_ios)
                       ],
                     ),

@@ -50,14 +50,27 @@ class Alphabets5Screen extends StatelessWidget {
                   width: 400,
                   fit: BoxFit.contain)
           ),
-          Positioned(
-              top: 650,
-              left: MediaQuery.of(context).size.width / 2 - 20,
-              child: Image.asset("assets/images/spk_img.png",
-                height: 50,
-                width: 50,
-              )
+      Positioned(
+          top: 650,
+          left: MediaQuery.of(context).size.width / 2 - 30,
+          child: Text(
+            "[dii]",
+            style: TextStyle(
+                color: Colors.purple,
+                fontSize: 20,
+                fontWeight: FontWeight.bold
+            ),
           )
+      ),
+      Positioned(
+          top: 710,
+          left: MediaQuery.of(context).size.width / 2 - 20,
+          child: Image.asset("assets/images/spk_img.png",
+            height: 40,
+            width: 40,
+          )
+      ),
+
 
           // Other widgets of your screen...
         ],

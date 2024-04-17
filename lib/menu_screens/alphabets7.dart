@@ -51,12 +51,24 @@ class Alphabets7Screen extends StatelessWidget {
           ),
           Positioned(
               top: 650,
+              left: MediaQuery.of(context).size.width / 2 - 30,
+              child: Text(
+                "[ef]",
+                style: TextStyle(
+                    color: Colors.pinkAccent,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold
+                ),
+              )
+          ),
+          Positioned(
+              top: 710,
               left: MediaQuery.of(context).size.width / 2 - 20,
               child: Image.asset("assets/images/spk_img.png",
-                height: 50,
-                width: 50,
+                height: 40,
+                width: 40,
               )
-          )
+          ),
 
           // Other widgets of your screen...
         ],
