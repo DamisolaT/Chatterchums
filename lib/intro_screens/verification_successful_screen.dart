@@ -1,6 +1,7 @@
 
 
 import 'package:chatterchums/menu_screens/home_screen.dart';
+import 'package:chatterchums/set_up_screens/splash_screen_4.dart';
 import 'package:flutter/material.dart';
 
 class VerificationSuccessfulScreen extends StatelessWidget {
@@ -42,7 +43,7 @@ class VerificationSuccessfulScreen extends StatelessWidget {
                     GestureDetector(
                       onTap: () {
                         Navigator.push(context, MaterialPageRoute(
-                            builder: (context) => HomeScreen()
+                            builder: (context) => SplashScreen4()
                         ));// Add your onTap logic here
                       },
                       child: Container(

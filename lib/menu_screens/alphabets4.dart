@@ -1,9 +1,9 @@
-
-
+import 'package:chatterchums/menu_screens/alphabets5.dart';
 import 'package:flutter/material.dart';
 
+
 class Alphabets4Screen extends StatelessWidget {
-  const Alphabets4Screen({super.key});
+  const Alphabets4Screen({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class Alphabets4Screen extends StatelessWidget {
         children: [
           Positioned(
             top: 50,
-            left: MediaQuery.of(context).size.width / 2 - 45, // Half of the width minus half of the container width
+            left: MediaQuery.of(context).size.width / 2 - 45,
             child: Container(
               alignment: Alignment.center,
               height: 25,
@@ -31,52 +31,72 @@ class Alphabets4Screen extends StatelessWidget {
             ),
           ),
           Positioned(
-              top: 90,
-              left: MediaQuery.of(context).size.width / 2 - 100,
-              child: Text(
-                "Letter Cc",
-                style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 34,
-                    fontWeight: FontWeight.bold
-                ),
-              )
-          ),
-
-          Positioned(
-              top: 230,
-              left: MediaQuery.of(context).size.width / 2 - 200,
-              child: Image.asset("assets/images/alpha4_img.png",
-                  height: 400,
-                  width: 400,
-                  fit: BoxFit.contain)
+            top: 90,
+            left: MediaQuery.of(context).size.width / 2 - 100,
+            child: Text(
+              "Letter Cc",
+              style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 34,
+                  fontWeight: FontWeight.bold
+              ),
+            ),
           ),
           Positioned(
-              top: 650,
-              left: MediaQuery.of(context).size.width / 2 - 30,
-              child: Text(
-                "[sii]",
-                style: TextStyle(
-                    color: Colors.green,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold
-                ),
-              )
+            top: 230,
+            left: MediaQuery.of(context).size.width / 2 - 200,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    transitionDuration: Duration(milliseconds: 500),
+                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                      var begin = Offset(1.0, 0.0);
+                      var end = Offset.zero;
+                      var curve = Curves.ease;
+                      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                      var offsetAnimation = animation.drive(tween);
+                      return SlideTransition(
+                        position: offsetAnimation,
+                        child: child,
+                      );
+                    },
+                    pageBuilder: (context, animation, secondaryAnimation) => Alphabets5Screen(),
+                  ),
+                );
+              },
+              child: Image.asset(
+                "assets/images/alpha4_img.png",
+                height: 400,
+                width: 400,
+                fit: BoxFit.contain,
+              ),
+            ),
           ),
           Positioned(
-              top: 710,
-              left: MediaQuery.of(context).size.width / 2 - 20,
-              child: Image.asset("assets/images/spk_img.png",
-                height: 40,
-                width: 40,
-              )
+            top: 650,
+            left: MediaQuery.of(context).size.width / 2 - 30,
+            child: Text(
+              "[sii]",
+              style: TextStyle(
+                  color: Colors.green,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold
+              ),
+            ),
           ),
-
-          // Other widgets of your screen...
+          Positioned(
+            top: 710,
+            left: MediaQuery.of(context).size.width / 2 - 20,
+            child: Image.asset(
+              "assets/images/spk_img.png",
+              height: 40,
+              width: 40,
+            ),
+          ),
         ],
       ),
-
-
     );
   }
 }

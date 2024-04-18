@@ -1,8 +1,9 @@
-
+import 'package:chatterchums/menu_screens/alphabets11.dart';
 import 'package:flutter/material.dart';
 
+
 class Alphabets10Screen extends StatelessWidget {
-  const Alphabets10Screen({super.key});
+  const Alphabets10Screen({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,52 +31,73 @@ class Alphabets10Screen extends StatelessWidget {
             ),
           ),
           Positioned(
-              top: 90,
-              left: MediaQuery.of(context).size.width / 2 - 100,
-              child: Text(
-                "Letter Li",
-                style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 34,
-                    fontWeight: FontWeight.bold
-                ),
-              )
-          ),
-
-          Positioned(
-              top: 230,
-              left: MediaQuery.of(context).size.width / 2 - 200,
-              child: Image.asset("assets/images/alpha10_img.png",
-                  height: 400,
-                  width: 400,
-                  fit: BoxFit.contain)
+            top: 90,
+            left: MediaQuery.of(context).size.width / 2 - 100,
+            child: Text(
+              "Letter Ii",
+              style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 34,
+                  fontWeight: FontWeight.bold
+              ),
+            ),
           ),
           Positioned(
-              top: 650,
-              left: MediaQuery.of(context).size.width / 2 - 30,
-              child: Text(
-                "[ai]",
-                style: TextStyle(
-                    color: Colors.green,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold
-                ),
-              )
+            top: 230,
+            left: MediaQuery.of(context).size.width / 2 - 200,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    transitionDuration: Duration(milliseconds: 500),
+                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                      var begin = Offset(1.0, 0.0);
+                      var end = Offset.zero;
+                      var curve = Curves.ease;
+                      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                      var offsetAnimation = animation.drive(tween);
+                      return SlideTransition(
+                        position: offsetAnimation,
+                        child: child,
+                      );
+                    },
+                    pageBuilder: (context, animation, secondaryAnimation) => Alphabets11Screen(),
+                  ),
+                );
+              },
+              child: Image.asset(
+                "assets/images/alpha10_img.png",
+                height: 400,
+                width: 400,
+                fit: BoxFit.contain,
+              ),
+            ),
           ),
           Positioned(
-              top: 710,
-              left: MediaQuery.of(context).size.width / 2 - 20,
-              child: Image.asset("assets/images/spk_img.png",
-                height: 40,
-                width: 40,
-              )
+            top: 650,
+            left: MediaQuery.of(context).size.width / 2 - 30,
+            child: Text(
+              "[ai]",
+              style: TextStyle(
+                  color: Colors.green,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold
+              ),
+            ),
           ),
-
+          Positioned(
+            top: 710,
+            left: MediaQuery.of(context).size.width / 2 - 20,
+            child: Image.asset(
+              "assets/images/spk_img.png",
+              height: 40,
+              width: 40,
+            ),
+          ),
           // Other widgets of your screen...
         ],
       ),
-
-
     );
   }
 }

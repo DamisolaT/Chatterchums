@@ -1,4 +1,5 @@
 
+import 'package:chatterchums/set_up_screens/welcome1.dart';
 import 'package:flutter/material.dart';
 
 class Continuebtn extends StatelessWidget {
@@ -7,7 +8,11 @@ class Continuebtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(
+            builder: (context) => WelcomeScreen1()
+        ));
+      },
       child: Container(
         alignment: Alignment.center,
         height: 55,

@@ -14,6 +14,7 @@ import 'package:chatterchums/menu_screens/alphabets9.dart';
 import 'package:chatterchums/menu_screens/colors.dart';
 import 'package:chatterchums/menu_screens/home_screen.dart';
 import 'package:chatterchums/menu_screens/numbers.dart';
+import 'package:chatterchums/menu_screens/puzzle_screen.dart';
 import 'package:chatterchums/menu_screens/shapes.dart';
 import 'package:chatterchums/menu_screens/simplewords.dart';
 import 'package:chatterchums/set_up_screens/registration1.dart';

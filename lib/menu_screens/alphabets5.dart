@@ -1,8 +1,9 @@
-
+import 'package:chatterchums/menu_screens/alphabets6.dart';
 import 'package:flutter/material.dart';
 
+
 class Alphabets5Screen extends StatelessWidget {
-  const Alphabets5Screen({super.key});
+  const Alphabets5Screen({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class Alphabets5Screen extends StatelessWidget {
         children: [
           Positioned(
             top: 50,
-            left: MediaQuery.of(context).size.width / 2 - 45, // Half of the width minus half of the container width
+            left: MediaQuery.of(context).size.width / 2 - 45,
             child: Container(
               alignment: Alignment.center,
               height: 25,
@@ -30,53 +31,72 @@ class Alphabets5Screen extends StatelessWidget {
             ),
           ),
           Positioned(
-              top: 90,
-              left: MediaQuery.of(context).size.width / 2 - 100,
-              child: Text(
-                "Letter Aa",
-                style: TextStyle(
-                    color: Colors.red,
-                    fontSize: 34,
-                    fontWeight: FontWeight.bold
-                ),
-              )
-          ),
-
-          Positioned(
-              top: 230,
-              left: MediaQuery.of(context).size.width / 2 - 200,
-              child: Image.asset("assets/images/alpha5_img.png",
-                  height: 400,
-                  width: 400,
-                  fit: BoxFit.contain)
-          ),
-      Positioned(
-          top: 650,
-          left: MediaQuery.of(context).size.width / 2 - 30,
-          child: Text(
-            "[dii]",
-            style: TextStyle(
-                color: Colors.purple,
-                fontSize: 20,
-                fontWeight: FontWeight.bold
+            top: 90,
+            left: MediaQuery.of(context).size.width / 2 - 100,
+            child: Text(
+              "Letter Dd",
+              style: TextStyle(
+                  color: Colors.red,
+                  fontSize: 34,
+                  fontWeight: FontWeight.bold
+              ),
             ),
-          )
-      ),
-      Positioned(
-          top: 710,
-          left: MediaQuery.of(context).size.width / 2 - 20,
-          child: Image.asset("assets/images/spk_img.png",
-            height: 40,
-            width: 40,
-          )
-      ),
-
-
-          // Other widgets of your screen...
+          ),
+          Positioned(
+            top: 230,
+            left: MediaQuery.of(context).size.width / 2 - 200,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    transitionDuration: Duration(milliseconds: 500),
+                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                      var begin = Offset(1.0, 0.0);
+                      var end = Offset.zero;
+                      var curve = Curves.ease;
+                      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                      var offsetAnimation = animation.drive(tween);
+                      return SlideTransition(
+                        position: offsetAnimation,
+                        child: child,
+                      );
+                    },
+                    pageBuilder: (context, animation, secondaryAnimation) => Alphabets6Screen(),
+                  ),
+                );
+              },
+              child: Image.asset(
+                "assets/images/alpha5_img.png",
+                height: 400,
+                width: 400,
+                fit: BoxFit.contain,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 650,
+            left: MediaQuery.of(context).size.width / 2 - 30,
+            child: Text(
+              "[dii]",
+              style: TextStyle(
+                  color: Colors.purple,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold
+              ),
+            ),
+          ),
+          Positioned(
+            top: 710,
+            left: MediaQuery.of(context).size.width / 2 - 20,
+            child: Image.asset(
+              "assets/images/spk_img.png",
+              height: 40,
+              width: 40,
+            ),
+          ),
         ],
       ),
-
-
     );
   }
 }

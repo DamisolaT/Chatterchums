@@ -1,4 +1,6 @@
 
+import 'package:chatterchums/menu_screens/alphabets1.dart';
+import 'package:chatterchums/menu_screens/alphabets2.dart';
 import 'package:flutter/material.dart';
 
 class Contents_items extends StatelessWidget {
@@ -44,13 +46,24 @@ class Contents_items extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10)
                       ),
                       child: Center(child:
-                      Text(
-                        title,
-                        style: TextStyle(
-                          fontSize: 20,
-                          color: Colors.black,
+                      InkWell(
+                        onTap: () {
+
+                            Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Alphabets1Screen()),
+                            );
+
+                        },
+                        child: Text(
+                          title,
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                          ),
                         ),
                       )
+
                       ),
                     ),
                     SizedBox(height: 10,),
