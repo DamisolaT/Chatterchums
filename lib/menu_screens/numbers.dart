@@ -1,9 +1,10 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:chatterchums/menu_screens/colors.dart';
 import 'package:flutter/material.dart';
 
-
 class NumbersScreen extends StatelessWidget {
-  const NumbersScreen({Key? key});
+  NumbersScreen({Key? key});
+  final player = AudioPlayer(); // Initialize AudioCache
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +37,9 @@ class NumbersScreen extends StatelessWidget {
             child: Text(
               "Numbers",
               style: TextStyle(
-                  color: Colors.purple,
-                  fontSize: 34,
-                  fontWeight: FontWeight.bold
+                color: Colors.purple,
+                fontSize: 34,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
@@ -47,24 +48,8 @@ class NumbersScreen extends StatelessWidget {
             left: MediaQuery.of(context).size.width / 2 - 200,
             child: GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    transitionDuration: Duration(milliseconds: 500),
-                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                      var begin = Offset(1.0, 0.0);
-                      var end = Offset.zero;
-                      var curve = Curves.ease;
-                      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                      var offsetAnimation = animation.drive(tween);
-                      return SlideTransition(
-                        position: offsetAnimation,
-                        child: child,
-                      );
-                    },
-                    pageBuilder: (context, animation, secondaryAnimation) => ColorsScreen(),
-                  ),
-                );
+                player.play(UrlSource("https://www.dreamenglish.com/Dream%20English%20Lets%20Count%201%20to%201001.mp3"));
+                print("Image tapped!");
               },
               child: Image.asset(
                 "assets/images/num_img.png",
@@ -74,6 +59,7 @@ class NumbersScreen extends StatelessWidget {
               ),
             ),
           ),
+
           Positioned(
             top: 650,
             left: MediaQuery.of(context).size.width / 2 - 20,

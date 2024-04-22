@@ -1,9 +1,10 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:chatterchums/menu_screens/alphabets2.dart';
 import 'package:flutter/material.dart';
 
-
 class Alphabets1Screen extends StatelessWidget {
-  const Alphabets1Screen({Key? key});
+  Alphabets1Screen({Key? key});
+  final player = AudioPlayer(); // Initialize AudioCache
 
   @override
   Widget build(BuildContext context) {
@@ -59,24 +60,8 @@ class Alphabets1Screen extends StatelessWidget {
             left: MediaQuery.of(context).size.width / 2 - 200,
             child: GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    transitionDuration: Duration(milliseconds: 500),
-                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                      var begin = Offset(1.0, 0.0);
-                      var end = Offset.zero;
-                      var curve = Curves.ease;
-                      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                      var offsetAnimation = animation.drive(tween);
-                      return SlideTransition(
-                        position: offsetAnimation,
-                        child: child,
-                      );
-                    },
-                    pageBuilder: (context, animation, secondaryAnimation) => Alphabets2Screen(),
-                  ),
-                );
+                player.play(UrlSource("https://www.dreamenglish.com/Dream%20English%20Traditional%20ABC01.mp3"));
+                print("Image tapped!");
               },
               child: Image.asset(
                 "assets/images/alpha_img.png",
@@ -86,15 +71,39 @@ class Alphabets1Screen extends StatelessWidget {
               ),
             ),
           ),
+
           Positioned(
             top: 650,
             left: MediaQuery.of(context).size.width / 2 - 20,
-            child: Image.asset(
-              "assets/images/spk_img.png",
-              height: 50,
-              width: 50,
+            child: Row(
+              children: [
+                Image.asset(
+                  "assets/images/spk_img.png",
+                  height: 50,
+                  width: 50,
+                ),
+                SizedBox(width: 50,),
+
+                Container(
+                  padding: EdgeInsets.all(4), // Adjust padding to make the container smaller
+                  decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(8)
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => Alphabets2Screen()
+                      ));
+                    },
+                    icon: Icon(Icons.arrow_forward_ios, size: 20, color: Colors.white,), // Adjust size of the icon
+                  ),
+                )
+
+              ],
             ),
-          )
+          ),
+
         ],
       ),
     );

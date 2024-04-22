@@ -1,7 +1,6 @@
 import 'package:chatterchums/menu_screens/numbers.dart';
 import 'package:flutter/material.dart';
 
-
 class Alphabets11Screen extends StatelessWidget {
   const Alphabets11Screen({Key? key});
 
@@ -36,42 +35,20 @@ class Alphabets11Screen extends StatelessWidget {
             child: Text(
               "Letter Jj",
               style: TextStyle(
-                  color: Colors.red,
-                  fontSize: 34,
-                  fontWeight: FontWeight.bold
+                color: Colors.red,
+                fontSize: 34,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
           Positioned(
             top: 230,
             left: MediaQuery.of(context).size.width / 2 - 200,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    transitionDuration: Duration(milliseconds: 500),
-                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                      var begin = Offset(1.0, 0.0);
-                      var end = Offset.zero;
-                      var curve = Curves.ease;
-                      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                      var offsetAnimation = animation.drive(tween);
-                      return SlideTransition(
-                        position: offsetAnimation,
-                        child: child,
-                      );
-                    },
-                    pageBuilder: (context, animation, secondaryAnimation) => NumbersScreen()),
-
-                );
-              },
-              child: Image.asset(
-                "assets/images/alpha11_img.png",
-                height: 400,
-                width: 400,
-                fit: BoxFit.contain,
-              ),
+            child: Image.asset(
+              "assets/images/alpha11_img.png",
+              height: 400,
+              width: 400,
+              fit: BoxFit.contain,
             ),
           ),
           Positioned(
@@ -80,14 +57,14 @@ class Alphabets11Screen extends StatelessWidget {
             child: Text(
               "[djei]",
               style: TextStyle(
-                  color: Colors.blue,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold
+                color: Colors.blue,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
           Positioned(
-            top: 710,
+            top: 700,
             left: MediaQuery.of(context).size.width / 2 - 20,
             child: Image.asset(
               "assets/images/spk_img.png",

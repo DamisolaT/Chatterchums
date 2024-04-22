@@ -9,10 +9,13 @@ class Contents_items extends StatelessWidget {
     required this.title,
     required this.subtitle,
     required this.imagePath,
+
   });
   final String title;
   final String subtitle;
   final String imagePath;
+
+  // Add this line
 
   @override
   Widget build(BuildContext context) {
@@ -49,10 +52,7 @@ class Contents_items extends StatelessWidget {
                       InkWell(
                         onTap: () {
 
-                            Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Alphabets1Screen()),
-                            );
+
 
                         },
                         child: Text(

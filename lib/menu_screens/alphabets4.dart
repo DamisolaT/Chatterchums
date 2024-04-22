@@ -1,9 +1,10 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:chatterchums/menu_screens/alphabets5.dart';
 import 'package:flutter/material.dart';
 
-
 class Alphabets4Screen extends StatelessWidget {
-  const Alphabets4Screen({Key? key});
+  Alphabets4Screen({Key? key});
+  final player = AudioPlayer(); // Initialize AudioCache
 
   @override
   Widget build(BuildContext context) {
@@ -47,24 +48,8 @@ class Alphabets4Screen extends StatelessWidget {
             left: MediaQuery.of(context).size.width / 2 - 200,
             child: GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    transitionDuration: Duration(milliseconds: 500),
-                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                      var begin = Offset(1.0, 0.0);
-                      var end = Offset.zero;
-                      var curve = Curves.ease;
-                      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                      var offsetAnimation = animation.drive(tween);
-                      return SlideTransition(
-                        position: offsetAnimation,
-                        child: child,
-                      );
-                    },
-                    pageBuilder: (context, animation, secondaryAnimation) => Alphabets5Screen(),
-                  ),
-                );
+                player.play(UrlSource("https://www.dreamenglish.com/mp3/c-song.mp3"));
+                print("Image tapped!");
               },
               child: Image.asset(
                 "assets/images/alpha4_img.png",
@@ -74,6 +59,7 @@ class Alphabets4Screen extends StatelessWidget {
               ),
             ),
           ),
+
           Positioned(
             top: 650,
             left: MediaQuery.of(context).size.width / 2 - 30,
@@ -87,14 +73,37 @@ class Alphabets4Screen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 710,
+            top: 680,
             left: MediaQuery.of(context).size.width / 2 - 20,
-            child: Image.asset(
-              "assets/images/spk_img.png",
-              height: 40,
-              width: 40,
+            child: Row(
+              children: [
+                Image.asset(
+                  "assets/images/spk_img.png",
+                  height: 50,
+                  width: 50,
+                ),
+                SizedBox(width: 50,),
+
+                Container(
+                  // Adjust padding to make the container smaller
+                  decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(8)
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => Alphabets5Screen()
+                      ));
+                    },
+                    icon: Icon(Icons.arrow_forward_ios, size: 20, color: Colors.white,), // Adjust size of the icon
+                  ),
+                )
+
+              ],
             ),
           ),
+
         ],
       ),
     );

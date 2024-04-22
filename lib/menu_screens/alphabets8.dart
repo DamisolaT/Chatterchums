@@ -1,7 +1,6 @@
 import 'package:chatterchums/menu_screens/alphabets9.dart';
 import 'package:flutter/material.dart';
 
-
 class Alphabets8Screen extends StatelessWidget {
   const Alphabets8Screen({Key? key});
 
@@ -45,33 +44,11 @@ class Alphabets8Screen extends StatelessWidget {
           Positioned(
             top: 230,
             left: MediaQuery.of(context).size.width / 2 - 200,
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    transitionDuration: Duration(milliseconds: 500),
-                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                      var begin = Offset(1.0, 0.0);
-                      var end = Offset.zero;
-                      var curve = Curves.ease;
-                      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                      var offsetAnimation = animation.drive(tween);
-                      return SlideTransition(
-                        position: offsetAnimation,
-                        child: child,
-                      );
-                    },
-                    pageBuilder: (context, animation, secondaryAnimation) => Alphabets9Screen(),
-                  ),
-                );
-              },
-              child: Image.asset(
-                "assets/images/alpha8_img.png",
-                height: 400,
-                width: 400,
-                fit: BoxFit.contain,
-              ),
+            child: Image.asset(
+              "assets/images/alpha8_img.png",
+              height: 400,
+              width: 400,
+              fit: BoxFit.contain,
             ),
           ),
           Positioned(
@@ -87,14 +64,37 @@ class Alphabets8Screen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 710,
+            top: 680,
             left: MediaQuery.of(context).size.width / 2 - 20,
-            child: Image.asset(
-              "assets/images/spk_img.png",
-              height: 40,
-              width: 40,
+            child: Row(
+              children: [
+                Image.asset(
+                  "assets/images/spk_img.png",
+                  height: 50,
+                  width: 50,
+                ),
+                SizedBox(width: 50,),
+
+                Container(
+                   // Adjust padding to make the container smaller
+                  decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(8)
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => Alphabets9Screen()
+                      ));
+                    },
+                    icon: Icon(Icons.arrow_forward_ios, size: 20, color: Colors.white,), // Adjust size of the icon
+                  ),
+                )
+
+              ],
             ),
           ),
+
         ],
       ),
     );

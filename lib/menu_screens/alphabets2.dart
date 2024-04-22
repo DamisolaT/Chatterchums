@@ -1,9 +1,11 @@
+import 'package:audioplayers/audioplayers.dart';
+import 'package:chatterchums/menu_screens/alphabets2.dart';
 import 'package:chatterchums/menu_screens/alphabets3.dart';
 import 'package:flutter/material.dart';
- // Import the next screen file
 
 class Alphabets2Screen extends StatelessWidget {
-  const Alphabets2Screen({Key? key});
+  Alphabets2Screen({Key? key});
+  final player = AudioPlayer(); // Initialize AudioCache
 
   @override
   Widget build(BuildContext context) {
@@ -59,41 +61,51 @@ class Alphabets2Screen extends StatelessWidget {
             left: MediaQuery.of(context).size.width / 2 - 200,
             child: GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    transitionDuration: Duration(milliseconds: 500),
-                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                      var begin = Offset(1.0, 0.0);
-                      var end = Offset.zero;
-                      var curve = Curves.ease;
-                      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                      var offsetAnimation = animation.drive(tween);
-                      return SlideTransition(
-                        position: offsetAnimation,
-                        child: child,
-                      );
-                    },
-                    pageBuilder: (context, animation, secondaryAnimation) => Alphabets3Screen()),
-                );
+                player.play(UrlSource("https://www.dreamenglish.com/mp3/a-song.mp3"));
+                print("Image tapped!");
               },
               child: Image.asset(
-                "assets/images/alpha_img.png",
+                "assets/images/alpha2_img.png",
                 height: 400,
                 width: 400,
                 fit: BoxFit.contain,
               ),
             ),
           ),
+
           Positioned(
             top: 650,
             left: MediaQuery.of(context).size.width / 2 - 20,
-            child: Image.asset(
-              "assets/images/spk_img.png",
-              height: 50,
-              width: 50,
+            child: Row(
+              children: [
+                Image.asset(
+                  "assets/images/spk_img.png",
+                  height: 50,
+                  width: 50,
+                ),
+                SizedBox(width: 50,),
+
+                Container(
+                   // Adjust padding to make the container smaller
+                  decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.circular(8)
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => Alphabets3Screen()
+                      ));
+                    },
+                    icon: Icon(Icons.arrow_forward_ios, size: 20, color: Colors.white,), // Adjust size of the icon
+                  ),
+                )
+
+              ],
             ),
-          )
+          ),
+
         ],
       ),
     );

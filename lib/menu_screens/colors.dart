@@ -1,9 +1,10 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:chatterchums/menu_screens/shapes.dart';
 import 'package:flutter/material.dart';
 
-
 class ColorsScreen extends StatelessWidget {
-  const ColorsScreen({Key? key});
+   ColorsScreen({Key? key});
+  final player = AudioPlayer();
 
   @override
   Widget build(BuildContext context) {
@@ -36,44 +37,29 @@ class ColorsScreen extends StatelessWidget {
             child: Text(
               "Names of colors",
               style: TextStyle(
-                  color: Colors.pink,
-                  fontSize: 34,
-                  fontWeight: FontWeight.bold
+                color: Colors.pink,
+                fontSize: 34,
+                fontWeight: FontWeight.bold,
               ),
             ),
           ),
           Positioned(
-            top: 230,
-            left: MediaQuery.of(context).size.width / 2 - 200,
+            top: 250,
+            left: MediaQuery.of(context).size.width / 2 - 150,
             child: GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  PageRouteBuilder(
-                    transitionDuration: Duration(milliseconds: 500),
-                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                      var begin = Offset(1.0, 0.0);
-                      var end = Offset.zero;
-                      var curve = Curves.ease;
-                      var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                      var offsetAnimation = animation.drive(tween);
-                      return SlideTransition(
-                        position: offsetAnimation,
-                        child: child,
-                      );
-                    },
-                    pageBuilder: (context, animation, secondaryAnimation) => ShapesScreen()),
-
-                );
+                player.play(UrlSource("https://www.dreamenglish.com/mp3/colorsong201.mp3"));
+                print("Image tapped!");
               },
               child: Image.asset(
                 "assets/images/color_img.png",
                 height: 400,
-                width: 400,
+                width: 300,
                 fit: BoxFit.contain,
               ),
             ),
           ),
+
           Positioned(
             top: 650,
             left: MediaQuery.of(context).size.width / 2 - 20,

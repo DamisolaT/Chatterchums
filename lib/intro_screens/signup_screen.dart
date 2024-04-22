@@ -4,11 +4,20 @@ import 'package:chatterchums/intro_screens_widgets/textformchatter.dart';
 
 import 'package:flutter/material.dart';
 
-class SignUpScreen extends StatelessWidget {
+class SignUpScreen extends StatefulWidget {
   SignUpScreen({super.key});
+
+  @override
+  State<SignUpScreen> createState() => _SignUpScreenState();
+}
+
+class _SignUpScreenState extends State<SignUpScreen> {
   final TextEditingController emailController = TextEditingController();
+
   final TextEditingController phoneNumberController = TextEditingController();
+
   final TextEditingController passwordController = TextEditingController();
+
   final TextEditingController reEnterPasswordController = TextEditingController();
 
 
@@ -61,6 +70,7 @@ class SignUpScreen extends StatelessWidget {
                       color: Colors.black54
                   ),
                 ),
+
                 ////Password Input
                 TextFormChatter(
                   controller: phoneNumberController,
