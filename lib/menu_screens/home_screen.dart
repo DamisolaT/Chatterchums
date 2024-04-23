@@ -10,10 +10,13 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
-        selectedItemColor: Colors.deepPurpleAccent,
-        unselectedItemColor: Colors.grey,
+        selectedItemColor: Colors.deepPurple,
+        unselectedItemColor: Colors.purple,
         type: BottomNavigationBarType.fixed,
         elevation: 8,
+        showSelectedLabels: true,
+        showUnselectedLabels: true,
+
         items: [
           BottomNavigationBarItem(
               icon: Icon(Icons.home),
