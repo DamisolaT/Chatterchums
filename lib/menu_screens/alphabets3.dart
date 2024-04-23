@@ -2,9 +2,25 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:chatterchums/menu_screens/alphabets4.dart';
 import 'package:flutter/material.dart';
 
-class Alphabets3Screen extends StatelessWidget {
+class Alphabets3Screen extends StatefulWidget {
    Alphabets3Screen({Key? key});
-  final player = AudioPlayer(); // Initialize AudioCache
+
+  @override
+  State<Alphabets3Screen> createState() => _Alphabets3ScreenState();
+}
+
+class _Alphabets3ScreenState extends State<Alphabets3Screen> {
+  final player = AudioPlayer();
+
+  bool isPlaying = false;
+
+  @override
+  void dispose() {
+    // Release resources when screen is disposed
+    player.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +63,17 @@ class Alphabets3Screen extends StatelessWidget {
             top: 230,
             left: MediaQuery.of(context).size.width / 2 - 200,
             child: GestureDetector(
-              onTap: () {
+              onTap: () async {
+                  if (isPlaying) {
+                  await player.pause();
+                  } else {
                 player.play(UrlSource("https://www.dreamenglish.com/mp3/b-song.mp3"));
                 print("Image tapped!");
+                  }
+
+                  setState(() {
+                    isPlaying = !isPlaying;
+                  });
               },
               child: Image.asset(
                 "assets/images/alpha3_img.png",

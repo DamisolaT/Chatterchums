@@ -3,9 +3,24 @@ import 'package:chatterchums/menu_screens/alphabets2.dart';
 import 'package:chatterchums/menu_screens/alphabets3.dart';
 import 'package:flutter/material.dart';
 
-class Alphabets2Screen extends StatelessWidget {
+class Alphabets2Screen extends StatefulWidget {
   Alphabets2Screen({Key? key});
-  final player = AudioPlayer(); // Initialize AudioCache
+
+  @override
+  State<Alphabets2Screen> createState() => _Alphabets2ScreenState();
+}
+
+class _Alphabets2ScreenState extends State<Alphabets2Screen> {
+  // Initialize AudioCache
+  final player = AudioPlayer();
+  bool isPlaying = false;
+
+  @override
+  void dispose() {
+    // Release resources when screen is disposed
+    player.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,8 +75,16 @@ class Alphabets2Screen extends StatelessWidget {
             top: 230,
             left: MediaQuery.of(context).size.width / 2 - 200,
             child: GestureDetector(
-              onTap: () {
+              onTap: () async {
+                  if (isPlaying) {
+                  await player.pause();
+                  } else {
                 player.play(UrlSource("https://www.dreamenglish.com/mp3/a-song.mp3"));
+                  }
+                  // Toggle the playing state
+                  setState(() {
+                    isPlaying = !isPlaying;
+                  });
                 print("Image tapped!");
               },
               child: Image.asset(
@@ -98,7 +121,7 @@ class Alphabets2Screen extends StatelessWidget {
                           builder: (context) => Alphabets3Screen()
                       ));
                     },
-                    icon: Icon(Icons.arrow_forward_ios, size: 20, color: Colors.white,), // Adjust size of the icon
+                    icon: Icon(Icons.arrow_forward_ios, size: 20, color: Colors.white,),
                   ),
                 )
 

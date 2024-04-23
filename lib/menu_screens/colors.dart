@@ -2,9 +2,24 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:chatterchums/menu_screens/shapes.dart';
 import 'package:flutter/material.dart';
 
-class ColorsScreen extends StatelessWidget {
+class ColorsScreen extends StatefulWidget {
    ColorsScreen({Key? key});
+
+  @override
+  State<ColorsScreen> createState() => _ColorsScreenState();
+}
+
+class _ColorsScreenState extends State<ColorsScreen> {
   final player = AudioPlayer();
+  bool isPlaying = false;
+
+  @override
+  void dispose() {
+    // Release resources when screen is disposed
+    player.dispose();
+    super.dispose();
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -47,9 +62,16 @@ class ColorsScreen extends StatelessWidget {
             top: 250,
             left: MediaQuery.of(context).size.width / 2 - 150,
             child: GestureDetector(
-              onTap: () {
-                player.play(UrlSource("https://www.dreamenglish.com/mp3/colorsong201.mp3"));
-                print("Image tapped!");
+              onTap: () async {
+                  if (isPlaying) {
+                  await player.pause();
+                  } else {
+                await player.play(UrlSource("https://www.dreamenglish.com/mp3/colorsong201.mp3"));
+                  }
+                  // Toggle the playing state
+                  setState(() {
+                    isPlaying = !isPlaying;
+                  });
               },
               child: Image.asset(
                 "assets/images/color_img.png",

@@ -12,7 +12,7 @@ class SplashScreenCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: MediaQuery.sizeOf(context).height *0.80,
       width: MediaQuery.sizeOf(context).width,
       child: Column(
@@ -38,16 +38,20 @@ class SplashScreenCard extends StatelessWidget {
               ),
             ],
           ),
-          MaterialButton(
-            minWidth: 300,
-              onPressed:() => onPressed(),
-            color: Theme.of(context).colorScheme.primary,
+          ElevatedButton(
+             onPressed:() => onPressed(),
+             style: ElevatedButton.styleFrom(
+              minimumSize: Size(300, 48),
+              backgroundColor: Theme.of(context).colorScheme.primary,
+            ),
             child: Text(
               buttonText,
-            style: TextStyle(
-              color: Colors.white
-            ),),
-          )
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+
         ],
       ),
     );

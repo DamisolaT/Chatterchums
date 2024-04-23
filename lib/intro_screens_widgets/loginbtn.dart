@@ -13,7 +13,7 @@ class LoginBtn extends StatelessWidget {
         height: 55,
         decoration: BoxDecoration(
           color: Colors.deepPurple,
-          borderRadius: BorderRadius.circular(6),
+          borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.1),

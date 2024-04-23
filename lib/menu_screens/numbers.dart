@@ -2,10 +2,23 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:chatterchums/menu_screens/colors.dart';
 import 'package:flutter/material.dart';
 
-class NumbersScreen extends StatelessWidget {
+class NumbersScreen extends StatefulWidget {
   NumbersScreen({Key? key});
-  final player = AudioPlayer(); // Initialize AudioCache
 
+  @override
+  State<NumbersScreen> createState() => _NumbersScreenState();
+}
+
+class _NumbersScreenState extends State<NumbersScreen> {
+  final player = AudioPlayer();
+  bool isPlaying = false;
+
+  @override
+  void dispose() {
+    // Release resources when screen is disposed
+    player.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,9 +60,16 @@ class NumbersScreen extends StatelessWidget {
             top: 230,
             left: MediaQuery.of(context).size.width / 2 - 200,
             child: GestureDetector(
-              onTap: () {
-                player.play(UrlSource("https://www.dreamenglish.com/Dream%20English%20Lets%20Count%201%20to%201001.mp3"));
-                print("Image tapped!");
+              onTap: () async {
+                if (isPlaying) {
+                await player.pause();
+                } else {
+                await player.play(UrlSource("https://www.dreamenglish.com/Dream%20English%20Lets%20Count%201%20to%201001.mp3"));
+                }
+                // Toggle the playing state
+                setState(() {
+                  isPlaying = !isPlaying;
+                });
               },
               child: Image.asset(
                 "assets/images/num_img.png",

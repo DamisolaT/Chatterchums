@@ -2,9 +2,23 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:chatterchums/menu_screens/alphabets2.dart';
 import 'package:flutter/material.dart';
 
-class Alphabets1Screen extends StatelessWidget {
-  Alphabets1Screen({Key? key});
-  final player = AudioPlayer(); // Initialize AudioCache
+class Alphabets1Screen extends StatefulWidget {
+  Alphabets1Screen({Key? key}) : super(key: key);
+
+  @override
+  _Alphabets1ScreenState createState() => _Alphabets1ScreenState();
+}
+
+class _Alphabets1ScreenState extends State<Alphabets1Screen> {
+  final player = AudioPlayer();
+  bool isPlaying = false;
+
+  @override
+  void dispose() {
+    // Release resources when screen is disposed
+    player.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,9 +73,16 @@ class Alphabets1Screen extends StatelessWidget {
             top: 230,
             left: MediaQuery.of(context).size.width / 2 - 200,
             child: GestureDetector(
-              onTap: () {
-                player.play(UrlSource("https://www.dreamenglish.com/Dream%20English%20Traditional%20ABC01.mp3"));
-                print("Image tapped!");
+              onTap: () async {
+                if (isPlaying) {
+                  await player.pause();
+                } else {
+                  await player.play(UrlSource("https://www.dreamenglish.com/Dream%20English%20Traditional%20ABC01.mp3"));
+                }
+                // Toggle the playing state
+                setState(() {
+                  isPlaying = !isPlaying;
+                });
               },
               child: Image.asset(
                 "assets/images/alpha_img.png",
@@ -71,7 +92,6 @@ class Alphabets1Screen extends StatelessWidget {
               ),
             ),
           ),
-
           Positioned(
             top: 650,
             left: MediaQuery.of(context).size.width / 2 - 20,
@@ -83,9 +103,8 @@ class Alphabets1Screen extends StatelessWidget {
                   width: 50,
                 ),
                 SizedBox(width: 50,),
-
                 Container(
-                  padding: EdgeInsets.all(4), // Adjust padding to make the container smaller
+                  padding: EdgeInsets.all(4),
                   decoration: BoxDecoration(
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(8)
@@ -96,14 +115,12 @@ class Alphabets1Screen extends StatelessWidget {
                           builder: (context) => Alphabets2Screen()
                       ));
                     },
-                    icon: Icon(Icons.arrow_forward_ios, size: 20, color: Colors.white,), // Adjust size of the icon
+                    icon: Icon(Icons.arrow_forward_ios, size: 20, color: Colors.white,),
                   ),
                 )
-
               ],
             ),
           ),
-
         ],
       ),
     );

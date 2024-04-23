@@ -1,5 +1,7 @@
 
 import 'package:chatterchums/intro_screens/login_screen.dart';
+import 'package:chatterchums/intro_screens_widgets/loginbtn.dart';
+import 'package:chatterchums/intro_screens_widgets/signupbtn.dart';
 import 'package:chatterchums/intro_screens_widgets/spash_screen_card.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -51,6 +53,8 @@ class _SplashScreen1State extends State<SplashScreen1> {
                       );
                     },
                   ),
+
+
                   SplashScreenCard(
                     image: "assets/images/login_img.png",
                     description: "Learning anytime, anywhere",
@@ -65,6 +69,7 @@ class _SplashScreen1State extends State<SplashScreen1> {
                 ],
               ),
             ),
+         
             SmoothPageIndicator(
               controller: _pageController,
               count: 3, // Assuming you have 3 pages
