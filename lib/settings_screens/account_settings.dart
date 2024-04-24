@@ -1,4 +1,9 @@
 
+import 'package:chatterchums/intro_screens/login_screen.dart';
+import 'package:chatterchums/settings_screens/address.dart';
+import 'package:chatterchums/settings_screens/change_password.dart';
+import 'package:chatterchums/settings_screens/emailaddress.dart';
+import 'package:chatterchums/settings_screens/settings_page.dart';
 import 'package:flutter/material.dart';
 
 class AccountSettingsPage extends StatelessWidget {
@@ -9,7 +14,11 @@ class AccountSettingsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: (){},
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => SettingsPage()
+            ));
+          },
           icon: Icon(Icons.arrow_back),
         ),
         title: Text("Account Settings",
@@ -29,7 +38,18 @@ class AccountSettingsPage extends StatelessWidget {
                   SizedBox(width: 8,),
                   Text("Change Password",style: TextStyle(fontSize: 18),),
                    Spacer(),
-                  Icon(Icons.arrow_right, size: 40,)
+                  GestureDetector(
+                    onTap: () {
+                      // Add your onTap logic here
+                      // For example, you can navigate to another screen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => ChangePassword()),
+                      );
+                    },
+                    child: Icon(Icons.arrow_right, size: 40,),
+                  )
+
                 ],
               ),
               Divider(),
@@ -40,7 +60,18 @@ class AccountSettingsPage extends StatelessWidget {
                   SizedBox(width: 8,),
                   Text("Address",style: TextStyle(fontSize: 18),),
                   Spacer(),
-                  Icon(Icons.arrow_right, size: 40,)
+                  GestureDetector(
+                    onTap: () {
+                      // Add your onTap logic here
+                      // For example, you can navigate to another screen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AddressScreen()),
+                      );
+                    },
+                    child: Icon(Icons.arrow_right, size: 40,),
+                  )
+
                 ],
               ),
               Divider(),
@@ -51,7 +82,18 @@ class AccountSettingsPage extends StatelessWidget {
                   SizedBox(width: 8,),
                   Text("Email",style: TextStyle(fontSize: 18),),
                   Spacer(),
-                  Icon(Icons.arrow_right, size: 40,)
+                  GestureDetector(
+                    onTap: () {
+                      // Add your onTap logic here
+                      // For example, you can navigate to another screen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => EmailAddressScreen()),
+                      );
+                    },
+                    child: Icon(Icons.arrow_right, size: 40,),
+                  )
+
                 ],
               ),
               Divider(),
@@ -62,7 +104,13 @@ class AccountSettingsPage extends StatelessWidget {
                   SizedBox(width: 8,),
                   Text("Delete Account",style: TextStyle(fontSize: 18),),
                   Spacer(),
-                  Icon(Icons.arrow_right, size: 40,)
+                  GestureDetector(
+                    onTap: () {
+
+                    },
+                    child: Icon(Icons.arrow_right, size: 40,),
+                  )
+
                 ],
               ),
               Divider(),
@@ -73,7 +121,18 @@ class AccountSettingsPage extends StatelessWidget {
                   SizedBox(width: 8,),
                   Text("Log out",style: TextStyle(fontSize: 18),),
                   Spacer(),
-                  Icon(Icons.arrow_right, size: 40,)
+                  GestureDetector(
+                    onTap: () {
+                      // Add your onTap logic here
+                      // For example, you can navigate to another screen
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                      );
+                    },
+                    child: Icon(Icons.arrow_right, size: 40,),
+                  )
+
                 ],
               ),
               Divider(),

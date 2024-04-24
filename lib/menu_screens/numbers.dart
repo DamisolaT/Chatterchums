@@ -1,4 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:chatterchums/home/homepage.dart';
+import 'package:chatterchums/menu_screens/categories.dart';
 import 'package:chatterchums/menu_screens/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -22,10 +24,20 @@ class _NumbersScreenState extends State<NumbersScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => CategoriesPage()
+            ));
+          },
+        ),
+      ),
       body: Stack(
         children: [
           Positioned(
-            top: 50,
+            top: 20,
             left: MediaQuery.of(context).size.width / 2 - 45, // Half of the width minus half of the container width
             child: Container(
               alignment: Alignment.center,
@@ -45,8 +57,8 @@ class _NumbersScreenState extends State<NumbersScreen> {
             ),
           ),
           Positioned(
-            top: 90,
-            left: MediaQuery.of(context).size.width / 2 - 100,
+            top: 60,
+            left: MediaQuery.of(context).size.width / 2 - 70,
             child: Text(
               "Numbers",
               style: TextStyle(
@@ -57,7 +69,7 @@ class _NumbersScreenState extends State<NumbersScreen> {
             ),
           ),
           Positioned(
-            top: 230,
+            top: 150,
             left: MediaQuery.of(context).size.width / 2 - 200,
             child: GestureDetector(
               onTap: () async {
@@ -81,7 +93,7 @@ class _NumbersScreenState extends State<NumbersScreen> {
           ),
 
           Positioned(
-            top: 650,
+            top: 570,
             left: MediaQuery.of(context).size.width / 2 - 20,
             child: Image.asset(
               "assets/images/spk_img.png",

@@ -1,5 +1,6 @@
         
-        import 'package:chatterchums/settings_screens/about_chatterchums.dart';
+        import 'package:chatterchums/home/homepage.dart';
+import 'package:chatterchums/settings_screens/about_chatterchums.dart';
 import 'package:chatterchums/settings_screens/account_settings.dart';
 import 'package:chatterchums/settings_screens/add_card.dart';
 import 'package:chatterchums/settings_screens/language_settings.dart';
@@ -18,7 +19,11 @@ import 'package:flutter/cupertino.dart';
             return Scaffold(
               appBar: AppBar(
                 leading: IconButton(
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => HomePage()
+                    ));
+                  },
                   icon: Icon(Icons.arrow_back),
                 ),
                 title: Text(

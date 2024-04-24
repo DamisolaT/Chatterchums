@@ -1,7 +1,7 @@
-import 'package:audioplayers/audioplayers.dart';
-import 'package:chatterchums/menu_screens/alphabets2.dart';
-import 'package:chatterchums/menu_screens/alphabets3.dart';
+import 'package:chatterchums/menu_screens/alphabets1.dart';
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
+import 'package:chatterchums/menu_screens/alphabets3.dart';
 
 class Alphabets2Screen extends StatefulWidget {
   Alphabets2Screen({Key? key});
@@ -25,10 +25,20 @@ class _Alphabets2ScreenState extends State<Alphabets2Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => Alphabets1Screen()
+            ));
+          },
+        ),
+      ),
       body: Stack(
         children: [
           Positioned(
-            top: 50,
+            top: 20, // Adjusted top position to move up
             left: MediaQuery.of(context).size.width / 2 - 45,
             child: Container(
               alignment: Alignment.center,
@@ -48,10 +58,10 @@ class _Alphabets2ScreenState extends State<Alphabets2Screen> {
             ),
           ),
           Positioned(
-            top: 90,
-            left: MediaQuery.of(context).size.width / 2 - 100,
+            top: 60, // Adjusted top position to move up
+            left: MediaQuery.of(context).size.width / 2 - 70,
             child: Text(
-              "The English",
+              "Letter Aa",
               style: TextStyle(
                   color: Colors.red,
                   fontSize: 34,
@@ -59,32 +69,21 @@ class _Alphabets2ScreenState extends State<Alphabets2Screen> {
               ),
             ),
           ),
+
           Positioned(
-            top: 130,
-            left: MediaQuery.of(context).size.width / 2 - 80,
-            child: Text(
-              "alphabets",
-              style: TextStyle(
-                  color: Colors.red,
-                  fontSize: 34,
-                  fontWeight: FontWeight.bold
-              ),
-            ),
-          ),
-          Positioned(
-            top: 230,
+            top: 150, // Adjusted top position to move up
             left: MediaQuery.of(context).size.width / 2 - 200,
             child: GestureDetector(
               onTap: () async {
-                  if (isPlaying) {
+                if (isPlaying) {
                   await player.pause();
-                  } else {
-                player.play(UrlSource("https://www.dreamenglish.com/mp3/a-song.mp3"));
-                  }
-                  // Toggle the playing state
-                  setState(() {
-                    isPlaying = !isPlaying;
-                  });
+                } else {
+                  player.play(UrlSource("https://www.dreamenglish.com/mp3/a-song.mp3"));
+                }
+                // Toggle the playing state
+                setState(() {
+                  isPlaying = !isPlaying;
+                });
                 print("Image tapped!");
               },
               child: Image.asset(
@@ -97,8 +96,8 @@ class _Alphabets2ScreenState extends State<Alphabets2Screen> {
           ),
 
           Positioned(
-            top: 650,
-            left: MediaQuery.of(context).size.width / 2 - 20,
+            top: 590, // Adjusted top position to move up
+            left: MediaQuery.of(context).size.width / 2 - 80,
             child: Row(
               children: [
                 Image.asset(
@@ -106,17 +105,16 @@ class _Alphabets2ScreenState extends State<Alphabets2Screen> {
                   height: 50,
                   width: 50,
                 ),
-                SizedBox(width: 50,),
+                SizedBox(width: 80,),
 
                 Container(
-                   // Adjust padding to make the container smaller
+                  // Adjust padding to make the container smaller
                   decoration: BoxDecoration(
                       color: Colors.black,
                       borderRadius: BorderRadius.circular(8)
                   ),
                   child: IconButton(
                     onPressed: () {
-
                       Navigator.push(context, MaterialPageRoute(
                           builder: (context) => Alphabets3Screen()
                       ));

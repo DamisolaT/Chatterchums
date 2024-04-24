@@ -14,9 +14,7 @@ class EmailButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(
-            builder: (context) => NotificationScreen()
-        ));
+
       },
       child: Container(
         alignment: Alignment.center,

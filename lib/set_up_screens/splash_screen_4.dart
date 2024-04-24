@@ -1,6 +1,6 @@
 
 
-import 'package:chatterchums/menu_screens/home_screen.dart';
+
 import 'package:chatterchums/set_up_screens/splash_screen_4.dart';
 import 'package:chatterchums/set_up_screens_widgets/continuebtn.dart';
 import 'package:flutter/material.dart';

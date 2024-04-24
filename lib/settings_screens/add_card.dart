@@ -1,3 +1,4 @@
+import 'package:chatterchums/settings_screens/settings_page.dart';
 import 'package:chatterchums/settings_screens_widgets/addcardbtn.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,9 @@ class AddCardScreen extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => SettingsPage()
+            ));
 
           },
           icon: Icon(Icons.arrow_back),

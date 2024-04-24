@@ -1,4 +1,5 @@
 
+import 'package:chatterchums/home/homepage.dart';
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -21,7 +22,11 @@ class _UpdateProfileState extends State<ProfilePage> {
             icon: Icon(Icons.arrow_back,
               color: Colors.black,
             ),
-            onPressed: (){},
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => HomePage()
+              ));
+            },
 
           ),
         ),

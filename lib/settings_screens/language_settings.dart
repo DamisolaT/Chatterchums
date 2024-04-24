@@ -1,4 +1,5 @@
 
+import 'package:chatterchums/settings_screens/settings_page.dart';
 import 'package:chatterchums/settings_screens_widgets/language_items.dart';
 import 'package:chatterchums/settings_screens_widgets/languagebtn.dart';
 import 'package:chatterchums/settings_screens_widgets/notificationbtn.dart';
@@ -13,6 +14,9 @@ class LanguageSettings extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           onPressed: (){
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => SettingsPage()
+            ));
 
           },
           icon: Icon(Icons.arrow_back),

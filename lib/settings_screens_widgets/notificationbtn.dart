@@ -15,10 +15,7 @@ class NotificationButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(
-            builder: (context) => LanguageSettings()
 
-        ));
       },
       child: Container(
         alignment: Alignment.center,

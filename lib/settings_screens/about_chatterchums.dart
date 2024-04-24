@@ -1,3 +1,4 @@
+import 'package:chatterchums/settings_screens/settings_page.dart';
 import 'package:flutter/material.dart';
 
 class AboutChatterchums extends StatelessWidget {
@@ -8,7 +9,11 @@ class AboutChatterchums extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => SettingsPage()
+            ));
+          },
           icon: Icon(Icons.arrow_back),
         ),
         title: Text(

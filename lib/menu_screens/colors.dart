@@ -1,4 +1,5 @@
 import 'package:audioplayers/audioplayers.dart';
+import 'package:chatterchums/menu_screens/categories.dart';
 import 'package:chatterchums/menu_screens/shapes.dart';
 import 'package:flutter/material.dart';
 
@@ -24,10 +25,20 @@ class _ColorsScreenState extends State<ColorsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => CategoriesPage()
+            ));
+          },
+        ),
+      ),
       body: Stack(
         children: [
           Positioned(
-            top: 50,
+            top: 20,
             left: MediaQuery.of(context).size.width / 2 - 45, // Half of the width minus half of the container width
             child: Container(
               alignment: Alignment.center,
@@ -47,7 +58,7 @@ class _ColorsScreenState extends State<ColorsScreen> {
             ),
           ),
           Positioned(
-            top: 90,
+            top: 60,
             left: MediaQuery.of(context).size.width / 2 - 100,
             child: Text(
               "Names of colors",
@@ -59,7 +70,7 @@ class _ColorsScreenState extends State<ColorsScreen> {
             ),
           ),
           Positioned(
-            top: 250,
+            top: 150,
             left: MediaQuery.of(context).size.width / 2 - 150,
             child: GestureDetector(
               onTap: () async {
@@ -83,7 +94,7 @@ class _ColorsScreenState extends State<ColorsScreen> {
           ),
 
           Positioned(
-            top: 650,
+            top: 570,
             left: MediaQuery.of(context).size.width / 2 - 20,
             child: Image.asset(
               "assets/images/spk_img.png",

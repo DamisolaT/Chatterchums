@@ -1,3 +1,4 @@
+import 'package:chatterchums/home/homepage.dart';
 import 'package:chatterchums/menu_screens/alphabets1.dart';
 import 'package:chatterchums/menu_screens/colors.dart';
 import 'package:chatterchums/menu_screens/numbers.dart';
@@ -9,8 +10,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class ContentsBody extends StatelessWidget {
-  const ContentsBody({super.key});
+class CategoriesPage extends StatelessWidget {
+  const CategoriesPage({super.key});
 
 
 
@@ -18,6 +19,16 @@ class ContentsBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+        leading: IconButton(
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(
+              builder: (context) => HomePage()
+          ));
+        },
+    icon: Icon(Icons.arrow_back),
+    ),
+        ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

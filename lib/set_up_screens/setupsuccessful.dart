@@ -1,6 +1,7 @@
 
 
-import 'package:chatterchums/menu_screens/home_screen.dart';
+import 'package:chatterchums/intro_screens/login_screen.dart';
+
 import 'package:flutter/material.dart';
 
 class SetupSuccessfulScreen extends StatelessWidget {
@@ -48,8 +49,8 @@ class SetupSuccessfulScreen extends StatelessWidget {
                             GestureDetector(
                               onTap: () {
                                 Navigator.push(context, MaterialPageRoute(
-                                    builder: (context) => HomeScreen()
-                                ));// Add your onTap logic here
+                                    builder: (context) => LoginScreen()
+                                ));
                               },
                               child: Container(
                                 padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),

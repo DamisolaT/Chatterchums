@@ -1,4 +1,6 @@
 
+import 'package:chatterchums/settings_screens/account_settings.dart';
+import 'package:chatterchums/settings_screens/settings_page.dart';
 import 'package:chatterchums/settings_screens_widgets/donebtn.dart';
 import 'package:chatterchums/settings_screens_widgets/textformchangepassword.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +15,11 @@ class ChangePassword extends StatelessWidget {
     return Scaffold(
                 appBar: AppBar(
                 leading: IconButton(
-                onPressed: (){},
+                onPressed: (){
+                  Navigator.push(context, MaterialPageRoute(
+                      builder: (context) => AccountSettingsPage()
+                  ));
+                },
                     icon: Icon(Icons.arrow_back),),
                        title: Text("Change password",
                        style: TextStyle(

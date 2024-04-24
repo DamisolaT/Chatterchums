@@ -1,3 +1,4 @@
+import 'package:chatterchums/menu_screens/categories.dart';
 import 'package:chatterchums/menu_screens/simplewords.dart';
 import 'package:flutter/material.dart';
 
@@ -7,10 +8,20 @@ class ShapesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => CategoriesPage()
+            ));
+          },
+        ),
+      ),
       body: Stack(
         children: [
           Positioned(
-            top: 50,
+            top: 20,
             left: MediaQuery.of(context).size.width / 2 - 45, // Half of the width minus half of the container width
             child: Container(
               alignment: Alignment.center,
@@ -30,8 +41,8 @@ class ShapesScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 90,
-            left: MediaQuery.of(context).size.width / 2 - 100,
+            top: 60,
+            left: MediaQuery.of(context).size.width / 2 - 120,
             child: Text(
               "Names of shapes",
               style: TextStyle(
@@ -42,7 +53,7 @@ class ShapesScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 230,
+            top: 150,
             left: MediaQuery.of(context).size.width / 2 - 200,
             child: Image.asset(
               "assets/images/shp_img.png",
@@ -52,7 +63,7 @@ class ShapesScreen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 650,
+            top: 570,
             left: MediaQuery.of(context).size.width / 2 - 20,
             child: Image.asset(
               "assets/images/spk_img.png",

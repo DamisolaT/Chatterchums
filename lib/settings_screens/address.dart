@@ -1,4 +1,6 @@
 
+import 'package:chatterchums/settings_screens/account_settings.dart';
+import 'package:chatterchums/settings_screens/settings_page.dart';
 import 'package:chatterchums/settings_screens_widgets/addressbtn.dart';
 import 'package:chatterchums/settings_screens_widgets/addresstextform.dart';
 import 'package:chatterchums/settings_screens_widgets/donebtn.dart';
@@ -15,7 +17,11 @@ class AddressScreen extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           leading: IconButton(
-            onPressed: (){},
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(
+                  builder: (context) => AccountSettingsPage()
+              ));
+            },
             icon: Icon(Icons.arrow_back),),
           title: Text(
               "Address",

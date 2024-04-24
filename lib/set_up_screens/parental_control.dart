@@ -1,4 +1,4 @@
-import 'package:chatterchums/menu_screens/home_screen.dart';
+
 import 'package:chatterchums/set_up_screens/registration1.dart';
 import 'package:chatterchums/set_up_screens/splash_screen_4.dart';
 import 'package:chatterchums/set_up_screens_widgets/continuebtn.dart';

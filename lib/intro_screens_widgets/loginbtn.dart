@@ -1,4 +1,6 @@
 
+import 'package:chatterchums/home/homepage.dart';
+
 import 'package:flutter/material.dart';
 
 class LoginBtn extends StatelessWidget {
@@ -7,7 +9,11 @@ class LoginBtn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: (){},
+      onTap: (){
+        Navigator.push(context, MaterialPageRoute(
+            builder: (context) => HomePage()
+        ));
+      },
       child: Container(
         alignment: Alignment.center,
         height: 55,

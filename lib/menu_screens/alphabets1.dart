@@ -1,6 +1,7 @@
+import 'package:chatterchums/home/homepage.dart';
+import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:chatterchums/menu_screens/alphabets2.dart';
-import 'package:flutter/material.dart';
 
 class Alphabets1Screen extends StatefulWidget {
   Alphabets1Screen({Key? key}) : super(key: key);
@@ -23,10 +24,20 @@ class _Alphabets1ScreenState extends State<Alphabets1Screen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => HomePage()
+            ));
+          },
+        ),
+      ),
       body: Stack(
         children: [
           Positioned(
-            top: 50,
+            top: 20, // Adjusted top position to move up
             left: MediaQuery.of(context).size.width / 2 - 45,
             child: Container(
               alignment: Alignment.center,
@@ -46,7 +57,7 @@ class _Alphabets1ScreenState extends State<Alphabets1Screen> {
             ),
           ),
           Positioned(
-            top: 90,
+            top: 60, // Adjusted top position to move up
             left: MediaQuery.of(context).size.width / 2 - 100,
             child: Text(
               "The English",
@@ -58,7 +69,7 @@ class _Alphabets1ScreenState extends State<Alphabets1Screen> {
             ),
           ),
           Positioned(
-            top: 130,
+            top: 100, // Adjusted top position to move up
             left: MediaQuery.of(context).size.width / 2 - 80,
             child: Text(
               "alphabets",
@@ -70,7 +81,7 @@ class _Alphabets1ScreenState extends State<Alphabets1Screen> {
             ),
           ),
           Positioned(
-            top: 230,
+            top: 170, // Adjusted top position to move up
             left: MediaQuery.of(context).size.width / 2 - 200,
             child: GestureDetector(
               onTap: () async {
@@ -93,8 +104,8 @@ class _Alphabets1ScreenState extends State<Alphabets1Screen> {
             ),
           ),
           Positioned(
-            top: 650,
-            left: MediaQuery.of(context).size.width / 2 - 20,
+            top: 590, // Adjusted top position to move up
+            left: MediaQuery.of(context).size.width / 2 - 80,
             child: Row(
               children: [
                 Image.asset(
@@ -102,7 +113,7 @@ class _Alphabets1ScreenState extends State<Alphabets1Screen> {
                   height: 50,
                   width: 50,
                 ),
-                SizedBox(width: 50,),
+                SizedBox(width: 100,),
                 Container(
                   padding: EdgeInsets.all(4),
                   decoration: BoxDecoration(

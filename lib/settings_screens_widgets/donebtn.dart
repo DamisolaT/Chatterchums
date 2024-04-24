@@ -12,9 +12,7 @@ class DoneButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(
-            builder: (context) => AddressScreen()
-        ));
+
       },
       child: Container(
         alignment: Alignment.center,

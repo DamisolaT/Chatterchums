@@ -13,9 +13,7 @@ class AddressButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-        Navigator.push(context, MaterialPageRoute(
-            builder: (context) => EmailAddressScreen()
-        ));
+
       },
       child: Container(
         alignment: Alignment.center,

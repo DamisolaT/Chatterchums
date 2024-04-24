@@ -1,3 +1,5 @@
+import 'package:chatterchums/home/homepage.dart';
+import 'package:chatterchums/menu_screens/alphabets10.dart';
 import 'package:chatterchums/menu_screens/numbers.dart';
 import 'package:flutter/material.dart';
 
@@ -7,10 +9,21 @@ class Alphabets11Screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+
+             Navigator.push(context, MaterialPageRoute(
+              builder: (context) => Alphabets10Screen()
+              ));
+          },
+        ),
+      ),
       body: Stack(
         children: [
           Positioned(
-            top: 50,
+            top: 20,
             left: MediaQuery.of(context).size.width / 2 - 45, // Half of the width minus half of the container width
             child: Container(
               alignment: Alignment.center,
@@ -30,8 +43,8 @@ class Alphabets11Screen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 90,
-            left: MediaQuery.of(context).size.width / 2 - 100,
+            top: 60,
+            left: MediaQuery.of(context).size.width / 2 - 70,
             child: Text(
               "Letter Jj",
               style: TextStyle(
@@ -42,7 +55,7 @@ class Alphabets11Screen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 230,
+            top: 150,
             left: MediaQuery.of(context).size.width / 2 - 200,
             child: Image.asset(
               "assets/images/alpha11_img.png",
@@ -52,8 +65,8 @@ class Alphabets11Screen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 650,
-            left: MediaQuery.of(context).size.width / 2 - 30,
+            top: 560,
+            left: MediaQuery.of(context).size.width / 2 - 20,
             child: Text(
               "[djei]",
               style: TextStyle(
@@ -64,14 +77,15 @@ class Alphabets11Screen extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 700,
-            left: MediaQuery.of(context).size.width / 2 - 20,
+            top: 590,
+            left: MediaQuery.of(context).size.width / 2 - 80,
             child: Image.asset(
               "assets/images/spk_img.png",
               height: 40,
               width: 40,
             ),
           ),
+
           // Other widgets of your screen...
         ],
       ),
