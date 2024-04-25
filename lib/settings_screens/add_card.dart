@@ -26,8 +26,9 @@ class AddCardScreen extends StatelessWidget {
           ),
         ),
       ),
-      body: Expanded(
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -36,42 +37,33 @@ class AddCardScreen extends StatelessWidget {
                 width: double.infinity, // Make the image full width
                 fit: BoxFit.cover, // Adjust the image to cover the space
               ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Name on card",
-                  style: TextStyle(fontSize: 16), // Example font size
-                ),
+              SizedBox(height: 16),
+              Text(
+                "Name on card",
+                style: TextStyle(fontSize: 16), // Example font size
               ),
-              Padding(
-                padding: const EdgeInsets.all(8),
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
+              TextField(
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(12), // Adjust text field size
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16),
                   ),
                 ),
               ),
-              SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Card number",
-                  style: TextStyle(fontSize: 16), // Example font size
-                ),
+              SizedBox(height: 16),
+              Text(
+                "Card number",
+                style: TextStyle(fontSize: 16), // Example font size
               ),
-              Padding(
-                padding: const EdgeInsets.all(8),
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
+              TextField(
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(12), // Adjust text field size
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16),
                   ),
                 ),
               ),
-              SizedBox(height: 8),
+              SizedBox(height: 16),
               Row(
                 children: [
                   Expanded(
@@ -79,6 +71,7 @@ class AddCardScreen extends StatelessWidget {
                       title: Text("Expiration date"),
                       subtitle: TextFormField(
                         decoration: InputDecoration(
+                          contentPadding: EdgeInsets.all(12), // Adjust text field size
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
@@ -86,12 +79,13 @@ class AddCardScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(width: 5),
+                  SizedBox(width: 16),
                   Expanded(
                     child: ListTile(
                       title: Text("CVV"),
                       subtitle: TextFormField(
                         decoration: InputDecoration(
+                          contentPadding: EdgeInsets.all(12), // Adjust text field size
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(16),
                           ),
@@ -101,30 +95,21 @@ class AddCardScreen extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 10,),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "Card number",
-                  style: TextStyle(fontSize: 16), // Example font size
-                ),
+              SizedBox(height: 16),
+              Text(
+                "Card number",
+                style: TextStyle(fontSize: 16), // Example font size
               ),
-              Padding(
-                padding: const EdgeInsets.all(8),
-                child: TextField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
+              TextField(
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(12), // Adjust text field size
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(16),
                   ),
                 ),
               ),
-              SizedBox(height: 10,),
-              Padding(
-                padding: const EdgeInsets.all(8),
-                child: AddCardButton(),
-              )
-
+              SizedBox(height: 16),
+              AddCardButton(),
             ],
           ),
         ),
