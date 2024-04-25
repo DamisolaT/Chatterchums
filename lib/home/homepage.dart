@@ -37,25 +37,25 @@ class _HomePageState extends State<HomePage> {
           bottomNavigationBar: BottomNavigationBar(
             currentIndex: selectedIndex,
             unselectedItemColor: Colors.black,
-            selectedItemColor: Colors.blue,
+            selectedItemColor: Colors.deepPurpleAccent,
             showSelectedLabels: true,
             showUnselectedLabels: true,
             onTap: _onItemTapped,
             items: [
               BottomNavigationBarItem(
-                icon: Icon(Icons.home),
+                icon: Image.asset('assets/images/home_img.png'),
                 label: "Home",
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.savings),
+                icon: Image.asset('assets/images/menu_img.png'),
                 label: "Categories",
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.rocket_launch),
+                icon: Image.asset('assets/images/settings_img.png'),
                 label: "Settings",
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.account_circle),
+                icon: Image.asset('assets/images/profile_img.png'),
                 label: "Profile",
               ),
             ],

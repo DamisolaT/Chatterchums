@@ -1,6 +1,7 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:chatterchums/menu_screens/alphabets2.dart';
 import 'package:chatterchums/menu_screens/alphabets4.dart';
+import 'package:chatterchums/menu_screens/categories_section.dart';
 import 'package:flutter/material.dart';
 
 class Alphabets3Screen extends StatefulWidget {
@@ -17,10 +18,12 @@ class _Alphabets3ScreenState extends State<Alphabets3Screen> {
 
   @override
   void dispose() {
-    // Release resources when screen is disposed
+    // Pause or stop the audio player when the screen is disposed
+    player.pause(); // or player.pause();
     player.dispose();
     super.dispose();
   }
+
 
 
   @override
@@ -31,7 +34,7 @@ class _Alphabets3ScreenState extends State<Alphabets3Screen> {
           icon: Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(
-                builder: (context) => Alphabets2Screen()
+                builder: (context) => CategoriesSection()
             ));
           },
         ),

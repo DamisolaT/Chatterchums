@@ -1,5 +1,6 @@
 import 'package:chatterchums/menu_screens/alphabets5.dart';
 import 'package:chatterchums/menu_screens/alphabets7.dart';
+import 'package:chatterchums/menu_screens/categories_section.dart';
 import 'package:flutter/material.dart';
 
 class Alphabets6Screen extends StatelessWidget {
@@ -13,7 +14,7 @@ class Alphabets6Screen extends StatelessWidget {
           icon: Icon(Icons.arrow_back),
           onPressed: () {
             Navigator.push(context, MaterialPageRoute(
-                builder: (context) => Alphabets5Screen()
+                builder: (context) => CategoriesSection()
             ));
           },
         ),

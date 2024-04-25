@@ -17,7 +17,8 @@ class _NumbersScreenState extends State<NumbersScreen> {
 
   @override
   void dispose() {
-    // Release resources when screen is disposed
+    // Pause or stop the audio player when the screen is disposed
+    player.pause(); // or player.pause();
     player.dispose();
     super.dispose();
   }

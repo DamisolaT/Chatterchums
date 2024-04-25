@@ -1,5 +1,6 @@
 import 'package:chatterchums/home/homepage.dart';
 import 'package:chatterchums/menu_screens/alphabets10.dart';
+import 'package:chatterchums/menu_screens/categories_section.dart';
 import 'package:chatterchums/menu_screens/numbers.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class Alphabets11Screen extends StatelessWidget {
           onPressed: () {
 
              Navigator.push(context, MaterialPageRoute(
-              builder: (context) => Alphabets10Screen()
+              builder: (context) => CategoriesSection()
               ));
           },
         ),
