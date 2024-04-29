@@ -26,8 +26,8 @@ class Alphabets8Screen extends StatelessWidget {
             left: MediaQuery.of(context).size.width / 2 - 45,
             child: Container(
               alignment: Alignment.center,
-              height: 25,
-              width: 90,
+              height: 40,
+              width: 120,
               decoration: BoxDecoration(
                 color: Colors.yellow[300],
                 borderRadius: BorderRadius.circular(10),

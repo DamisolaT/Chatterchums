@@ -8,6 +8,8 @@ class PopularCategories2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return ClipRect(
       child: Container(
+        height: 140,
+        width: 185,
         padding: EdgeInsets.all(12),
         decoration: BoxDecoration(
           color: Colors.deepPurple,

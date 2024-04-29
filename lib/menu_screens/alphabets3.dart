@@ -1,8 +1,9 @@
-import 'package:audioplayers/audioplayers.dart';
+
 import 'package:chatterchums/menu_screens/alphabets2.dart';
 import 'package:chatterchums/menu_screens/alphabets4.dart';
 import 'package:chatterchums/menu_screens/categories_section.dart';
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 
 class Alphabets3Screen extends StatefulWidget {
    Alphabets3Screen({Key? key});
@@ -46,8 +47,8 @@ class _Alphabets3ScreenState extends State<Alphabets3Screen> {
             left: MediaQuery.of(context).size.width / 2 - 45,
             child: Container(
               alignment: Alignment.center,
-              height: 25,
-              width: 90,
+              height: 40,
+              width: 120,
               decoration: BoxDecoration(
                 color: Colors.yellow[300],
                 borderRadius: BorderRadius.circular(10),
@@ -79,16 +80,16 @@ class _Alphabets3ScreenState extends State<Alphabets3Screen> {
             left: MediaQuery.of(context).size.width / 2 - 200,
             child: GestureDetector(
               onTap: () async {
-                  if (isPlaying) {
-                  await player.pause();
-                  } else {
-                player.play(UrlSource("https://www.dreamenglish.com/mp3/b-song.mp3"));
-
-                  }
-
-                  setState(() {
-                    isPlaying = !isPlaying;
-                  });
+                if (isPlaying) {
+                  await player.pause(); // Stop the audio if it's playing
+                } else {
+                  await player.setAsset("assets/audio/b_sounds.mpeg");
+                  await player.play(); // Start playing the audio
+                }
+                // Toggle the playing state
+                setState(() {
+                  isPlaying = !isPlaying;
+                });
               },
               child: Image.asset(
                 "assets/images/alpha3_img.png",

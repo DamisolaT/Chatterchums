@@ -22,8 +22,8 @@ class Contents_items extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(left: 10,right: 10),
       child: Container(
-        width: 350,
-        height: 80,
+        width: 400,
+        height: 100,
         decoration: BoxDecoration(
             color: Colors.deepPurple,
             borderRadius: BorderRadius.circular(16)
@@ -42,8 +42,8 @@ class Contents_items extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      height: 25,
-                      width: 90,
+                      height: 40,
+                      width: 120,
                       decoration: BoxDecoration(
                           color: Colors.yellow[300],
                           borderRadius: BorderRadius.circular(10)

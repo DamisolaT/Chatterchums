@@ -1,8 +1,9 @@
 import 'package:chatterchums/menu_screens/alphabets1.dart';
 import 'package:chatterchums/menu_screens/categories_section.dart';
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audioplayers.dart';
+
 import 'package:chatterchums/menu_screens/alphabets3.dart';
+import 'package:just_audio/just_audio.dart';
 
 class Alphabets2Screen extends StatefulWidget {
   Alphabets2Screen({Key? key});
@@ -45,8 +46,8 @@ class _Alphabets2ScreenState extends State<Alphabets2Screen> {
             left: MediaQuery.of(context).size.width / 2 - 45,
             child: Container(
               alignment: Alignment.center,
-              height: 25,
-              width: 90,
+              height: 40,
+              width: 120,
               decoration: BoxDecoration(
                 color: Colors.yellow[300],
                 borderRadius: BorderRadius.circular(10),
@@ -79,15 +80,15 @@ class _Alphabets2ScreenState extends State<Alphabets2Screen> {
             child: GestureDetector(
               onTap: () async {
                 if (isPlaying) {
-                  await player.pause();
+                  await player.pause(); // Stop the audio if it's playing
                 } else {
-                  player.play(UrlSource("https://www.dreamenglish.com/mp3/a-song.mp3"));
+                  await player.setAsset("assets/audio/a_sounds.mpeg");
+                  await player.play(); // Start playing the audio
                 }
                 // Toggle the playing state
                 setState(() {
                   isPlaying = !isPlaying;
                 });
-                print("Image tapped!");
               },
               child: Image.asset(
                 "assets/images/alpha2_img.png",

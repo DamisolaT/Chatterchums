@@ -1,8 +1,9 @@
-import 'package:audioplayers/audioplayers.dart';
+
 import 'package:chatterchums/menu_screens/alphabets3.dart';
 import 'package:chatterchums/menu_screens/alphabets5.dart';
 import 'package:chatterchums/menu_screens/categories_section.dart';
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 
 class Alphabets4Screen extends StatefulWidget {
   Alphabets4Screen({Key? key});
@@ -46,8 +47,8 @@ class _Alphabets4ScreenState extends State<Alphabets4Screen> {
             left: MediaQuery.of(context).size.width / 2 - 45,
             child: Container(
               alignment: Alignment.center,
-              height: 25,
-              width: 90,
+              height: 40,
+              width: 120,
               decoration: BoxDecoration(
                 color: Colors.yellow[300],
                 borderRadius: BorderRadius.circular(10),
@@ -78,16 +79,16 @@ class _Alphabets4ScreenState extends State<Alphabets4Screen> {
             left: MediaQuery.of(context).size.width / 2 - 200,
             child: GestureDetector(
               onTap: () async {
-                  if (isPlaying) {
-                  await player.pause();
-                  } else {
-                await player.play(UrlSource("https://www.dreamenglish.com/mp3/c-song.mp3"));
-
-                  }
-                  // Toggle the playing state
-                  setState(() {
-                    isPlaying = !isPlaying;
-                  });
+                if (isPlaying) {
+                  await player.pause(); // Stop the audio if it's playing
+                } else {
+                  await player.setAsset("assets/audio/c_sounds.mpeg");
+                  await player.play(); // Start playing the audio
+                }
+                // Toggle the playing state
+                setState(() {
+                  isPlaying = !isPlaying;
+                });
               },
               child: Image.asset(
                 "assets/images/alpha4_img.png",

@@ -1,7 +1,8 @@
-import 'package:audioplayers/audioplayers.dart';
+
 import 'package:chatterchums/menu_screens/categories.dart';
 import 'package:chatterchums/menu_screens/shapes.dart';
 import 'package:flutter/material.dart';
+import 'package:just_audio/just_audio.dart';
 
 class ColorsScreen extends StatefulWidget {
    ColorsScreen({Key? key});
@@ -43,8 +44,8 @@ class _ColorsScreenState extends State<ColorsScreen> {
             left: MediaQuery.of(context).size.width / 2 - 45, // Half of the width minus half of the container width
             child: Container(
               alignment: Alignment.center,
-              height: 25,
-              width: 90,
+              height: 40,
+              width: 120,
               decoration: BoxDecoration(
                 color: Colors.yellow[300],
                 borderRadius: BorderRadius.circular(10),
@@ -75,15 +76,16 @@ class _ColorsScreenState extends State<ColorsScreen> {
             left: MediaQuery.of(context).size.width / 2 - 150,
             child: GestureDetector(
               onTap: () async {
-                  if (isPlaying) {
-                  await player.pause();
-                  } else {
-                await player.play(UrlSource("https://www.dreamenglish.com/mp3/colorsong201.mp3"));
-                  }
-                  // Toggle the playing state
-                  setState(() {
-                    isPlaying = !isPlaying;
-                  });
+                if (isPlaying) {
+                  await player.pause(); // Stop the audio if it's playing
+                } else {
+                  await player.setAsset("assets/audio/color_sounds.mpeg");
+                  await player.play(); // Start playing the audio
+                }
+                // Toggle the playing state
+                setState(() {
+                  isPlaying = !isPlaying;
+                });
               },
               child: Image.asset(
                 "assets/images/color_img.png",

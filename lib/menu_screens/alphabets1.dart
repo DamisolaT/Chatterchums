@@ -1,7 +1,9 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:chatterchums/home/homepage.dart';
 import 'package:flutter/material.dart';
-import 'package:audioplayers/audioplayers.dart';
+
 import 'package:chatterchums/menu_screens/alphabets2.dart';
+import 'package:just_audio/just_audio.dart';
 
 class Alphabets1Screen extends StatefulWidget {
   Alphabets1Screen({Key? key}) : super(key: key);
@@ -43,8 +45,8 @@ class _Alphabets1ScreenState extends State<Alphabets1Screen> {
             left: MediaQuery.of(context).size.width / 2 - 45,
             child: Container(
               alignment: Alignment.center,
-              height: 25,
-              width: 90,
+              height: 40,
+              width: 120,
               decoration: BoxDecoration(
                 color: Colors.yellow[300],
                 borderRadius: BorderRadius.circular(10),
@@ -88,9 +90,10 @@ class _Alphabets1ScreenState extends State<Alphabets1Screen> {
             child: GestureDetector(
               onTap: () async {
                 if (isPlaying) {
-                  await player.pause();
+                  await player.pause(); // Stop the audio if it's playing
                 } else {
-                  await player.play(UrlSource("https://www.dreamenglish.com/Dream%20English%20Traditional%20ABC01.mp3"));
+                  await player.setAsset("assets/audio/abc_sounds.mpeg");
+                  await player.play(); // Start playing the audio
                 }
                 // Toggle the playing state
                 setState(() {
