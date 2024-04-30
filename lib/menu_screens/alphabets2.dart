@@ -76,7 +76,7 @@ class _Alphabets2ScreenState extends State<Alphabets2Screen> {
 
           Positioned(
             top: 150, // Adjusted top position to move up
-            left: MediaQuery.of(context).size.width / 2 - 200,
+            left: MediaQuery.of(context).size.width / 2 - 150,
             child: GestureDetector(
               onTap: () async {
                 if (isPlaying) {
@@ -90,12 +90,11 @@ class _Alphabets2ScreenState extends State<Alphabets2Screen> {
                   isPlaying = !isPlaying;
                 });
               },
-              child: Image.asset(
-                "assets/images/aa_img.png",
-                height: 400,
-                width: 390,
-                fit: BoxFit.contain,
-              ),
+               child:Image.asset(
+                  "assets/images/aa_img.png",
+                  height: 400,
+                  width: 300,
+                ),
             ),
           ),
 

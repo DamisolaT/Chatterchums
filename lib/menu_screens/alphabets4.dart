@@ -76,7 +76,7 @@ class _Alphabets4ScreenState extends State<Alphabets4Screen> {
           ),
           Positioned(
             top: 150,
-            left: MediaQuery.of(context).size.width / 2 - 200,
+            left: MediaQuery.of(context).size.width / 2 - 150,
             child: GestureDetector(
               onTap: () async {
                 if (isPlaying) {
@@ -93,7 +93,7 @@ class _Alphabets4ScreenState extends State<Alphabets4Screen> {
               child: Image.asset(
                 "assets/images/cc_img.png",
                 height: 400,
-                width: 390,
+                width: 300,
                 fit: BoxFit.contain,
               ),
             ),

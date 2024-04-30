@@ -72,7 +72,7 @@ class _Alphabets6ScreenState extends State<Alphabets6Screen> {
           ),
           Positioned(
             top: 150,
-            left: MediaQuery.of(context).size.width / 2 - 200,
+            left: MediaQuery.of(context).size.width / 2 - 150,
             child: GestureDetector(
               onTap: () async {
                 if (isPlaying) {
@@ -89,7 +89,7 @@ class _Alphabets6ScreenState extends State<Alphabets6Screen> {
               child: Image.asset(
                 "assets/images/ee_img.png",
                 height: 400,
-                width: 390,
+                width: 300,
                 fit: BoxFit.contain,
               ),
             ),
