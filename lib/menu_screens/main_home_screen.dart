@@ -1,11 +1,24 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:chatterchums/menu_screens/categories_section.dart';
 import 'package:chatterchums/menu_screens/categories.dart';
 import 'package:chatterchums/menu_screens_widgets/popular_categories.dart';
 import 'package:chatterchums/menu_screens_widgets/popular_categories_2.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MainHomeScreen extends StatelessWidget {
   const MainHomeScreen({Key? key});
+
+
+
+  void launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -142,6 +155,7 @@ class MainHomeScreen extends StatelessWidget {
                 Row(
                   children: [
                     Expanded(
+
                       child: PopularCategories(),
                     ),
                     SizedBox(width: 12),
@@ -168,8 +182,8 @@ class MainHomeScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Container(
-                  width: double.infinity,
-                  height: 90,
+                  width: 400,
+                  height: 125,
                   decoration: BoxDecoration(
                     color: Colors.deepPurple,
                     borderRadius: BorderRadius.circular(16),
@@ -190,7 +204,14 @@ class MainHomeScreen extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Icon(Icons.video_collection, color: Colors.yellow[700]),
+
+                            GestureDetector(
+                              onTap: (){
+                                   const url = "https://chatterchumstuts.netlify.app/";
+                                   
+                                   launchURL(url);
+                              },
+                                child: Icon(Icons.video_collection, color: Colors.yellow[700])),
                           ],
                         ),
                       ),
