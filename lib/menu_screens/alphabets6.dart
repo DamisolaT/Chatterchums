@@ -87,9 +87,9 @@ class _Alphabets6ScreenState extends State<Alphabets6Screen> {
                 });
               },
               child: Image.asset(
-                "assets/images/alpha6_img.png",
+                "assets/images/ee_img.png",
                 height: 400,
-                width: 400,
+                width: 390,
                 fit: BoxFit.contain,
               ),
             ),

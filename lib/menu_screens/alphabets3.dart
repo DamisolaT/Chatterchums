@@ -92,9 +92,9 @@ class _Alphabets3ScreenState extends State<Alphabets3Screen> {
                 });
               },
               child: Image.asset(
-                "assets/images/alpha3_img.png",
+                "assets/images/bb_img.png",
                 height: 400,
-                width: 400,
+                width: 390,
                 fit: BoxFit.contain,
               ),
             ),

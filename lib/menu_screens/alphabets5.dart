@@ -90,9 +90,9 @@ class _Alphabets5ScreenState extends State<Alphabets5Screen> {
                 });
               },
               child: Image.asset(
-                "assets/images/alpha5_img.png",
+                "assets/images/dd_img.png",
                 height: 400,
-                width: 400,
+                width: 390,
                 fit: BoxFit.contain,
               ),
             ),

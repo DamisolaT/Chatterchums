@@ -91,9 +91,9 @@ class _Alphabets4ScreenState extends State<Alphabets4Screen> {
                 });
               },
               child: Image.asset(
-                "assets/images/alpha4_img.png",
+                "assets/images/cc_img.png",
                 height: 400,
-                width: 400,
+                width: 390,
                 fit: BoxFit.contain,
               ),
             ),
