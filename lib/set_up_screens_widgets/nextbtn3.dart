@@ -13,6 +13,7 @@ class NextBtn3 extends StatelessWidget {
       onTap: (){
         Navigator.push(context, MaterialPageRoute(
             builder: (context) => PasswordScreen()
+                
         ));
       },
       child: Container(

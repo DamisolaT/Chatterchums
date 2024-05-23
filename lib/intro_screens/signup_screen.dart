@@ -1,6 +1,11 @@
 
+import 'package:chatterchums/home/homepage.dart';
+import 'package:chatterchums/intro_screens/OTP%20Verification.dart';
+import 'package:chatterchums/intro_screens/login_screen.dart';
 import 'package:chatterchums/intro_screens_widgets/signupbtn.dart';
 import 'package:chatterchums/intro_screens_widgets/textformchatter.dart';
+import 'package:chatterchums/services/auth_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 
@@ -12,6 +17,9 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+
+  final  FirebaseAuthService _auth = FirebaseAuthService();
+
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController phoneNumberController = TextEditingController();
@@ -20,11 +28,31 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   final TextEditingController reEnterPasswordController = TextEditingController();
 
+  @override
+  void dispose() {
+   emailController.dispose();
+   phoneNumberController.dispose();
+   passwordController.dispose();
+   reEnterPasswordController.dispose();
+    super.dispose();
+  }
+
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute(
+                builder: (context) => LoginScreen()
+            ));
+          },
+          icon: Icon(Icons.arrow_back),
+        ),
+
+      ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
@@ -54,7 +82,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
 
-                SizedBox(height: 10,),
+
                 ////Email Input
                 TextFormChatter(
                   controller:  emailController,
@@ -116,7 +144,69 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       color: Colors.deepPurple, // Specify the color of the divider line
                     ),
                 SizedBox(height: 70,),
-                SignUpBtn(),
+                GestureDetector(
+                  onTap: (){
+                    FirebaseAuth.instance.createUserWithEmailAndPassword(
+                        email: emailController.text,
+                        password: passwordController.text
+                    ).then((value){
+                      print("Create a new account");
+                      Navigator.push(context, MaterialPageRoute(
+                          builder: (context) => HomePage()));
+                    }).onError((error, stackTrace) {
+                      print("Error ${error.toString()}");
+
+                    });
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    height: 45,
+                    decoration: BoxDecoration(
+                      color: Colors.deepPurple,
+                      borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Sign Up",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 50,
+                  color: Colors.white,
+                  alignment: Alignment.center,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Already have an account?",
+                        style: TextStyle(
+                            color: Colors.purple[400],
+                            fontSize: 18
+                        ),
+                      ),
+                      InkWell(
+                        onTap: (){
+                          Navigator.push(context, MaterialPageRoute(
+                              builder: (context) => LoginScreen()
+                          ));
+                        },
+                        child: Text(
+                          "Login",
+                          style: TextStyle(
+                              color: Colors.deepPurple,
+                              fontSize: 20
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                )
 
               ],
             ),

@@ -38,7 +38,7 @@ class TextFormChatter extends StatelessWidget {
             hintText: text,
             suffixIcon: obscure ? Icon(Icons.remove_red_eye_outlined): null,
             border: InputBorder.none,
-            contentPadding: EdgeInsets.all(0),
+            contentPadding: EdgeInsets.all(8),
             hintStyle: const TextStyle(
                 height: 1,
                 fontSize: 12,
