@@ -5,6 +5,7 @@ import 'package:chatterchums/intro_screens/login_screen.dart';
 import 'package:chatterchums/intro_screens_widgets/signupbtn.dart';
 import 'package:chatterchums/intro_screens_widgets/textformchatter.dart';
 import 'package:chatterchums/services/auth_service.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
@@ -20,6 +21,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   final  FirebaseAuthService _auth = FirebaseAuthService();
 
+  final TextEditingController firstNameController = TextEditingController();
+  final TextEditingController lastNameController = TextEditingController();
+  final TextEditingController ageController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController phoneNumberController = TextEditingController();
@@ -28,13 +32,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   final TextEditingController reEnterPasswordController = TextEditingController();
 
+
   @override
   void dispose() {
-   emailController.dispose();
-   phoneNumberController.dispose();
-   passwordController.dispose();
-   reEnterPasswordController.dispose();
+    firstNameController.dispose();
+    lastNameController.dispose();
+    ageController.dispose();
+    emailController.dispose();
+    phoneNumberController.dispose();
+    passwordController.dispose();
+    reEnterPasswordController.dispose();
     super.dispose();
+  }
+
+  Future addUserDetails(String firstName, String lastName, int age, String email) async {
+    await FirebaseFirestore.instance.collection('users').add({
+
+      'first name': firstName,
+      'last name': lastName,
+      'age': age,
+      'email':email
+
+    });
   }
 
 
@@ -42,17 +61,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(
-                builder: (context) => LoginScreen()
-            ));
-          },
-          icon: Icon(Icons.arrow_back),
-        ),
-
-      ),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
@@ -61,40 +69,79 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SizedBox(height: 20,),
                 Container(
                   alignment: Alignment.center,
                   child: Text(
                     "Sign up",
                     style: TextStyle(
                         color: Colors.purple,
-                        fontSize: 24,
+                        fontSize: 30,
                         fontWeight: FontWeight.bold
                     ),
                   ),
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 10,),
                 Text(
-                  "Email",
+                  "First Name",
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       color: Colors.black54
                   ),
                 ),
+                TextFormChatter(
+                  controller:  firstNameController,
+                  obscure:  false,
+                  text: "Enter your first name",
+                  textInputType: TextInputType.emailAddress,
+                ),
+                SizedBox(height: 10,),
+                Text(
+                  "Last Name",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black54
+                  ),
+                ),
+                TextFormChatter(
+                  controller:  lastNameController,
+                  obscure:  false,
+                  text: "Enter your last name",
+                  textInputType: TextInputType.emailAddress,
+                ),
+                SizedBox(height: 10,),
+                Text(
+                  "Age",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black54
+                  ),
+                ),
+                TextFormChatter(
+                  controller:  ageController,
+                  obscure:  false,
+                  text: "Enter your age",
+                  textInputType: TextInputType.emailAddress,
+                ),
+                SizedBox(height: 10,),
 
-
-                ////Email Input
+                Text(
+                  "Email",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black54
+                  ),
+                ),
                 TextFormChatter(
                   controller:  emailController,
                   obscure:  false,
                   text: "Email or Phone number",
                   textInputType: TextInputType.emailAddress,
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 10,),
                 Text(
                   "Phone Number",
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       color: Colors.black54
                   ),
                 ),
@@ -106,11 +153,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   textInputType: TextInputType.phone,
                   obscure: false,
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 10,),
                 Text(
                   "Password",
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       color: Colors.black54
                   ),
                 ),
@@ -120,11 +167,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   textInputType: TextInputType.text,
                   obscure: true,
                 ),
-                SizedBox(height: 20,),
+                SizedBox(height: 10,),
                 Text(
                   "Re-enter password",
                   style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       color: Colors.black54
                   ),
                 ),
@@ -143,20 +190,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       height: 1, // Adjust the height of the divider line
                       color: Colors.deepPurple, // Specify the color of the divider line
                     ),
-                SizedBox(height: 70,),
+                SizedBox(height: 30,),
                 GestureDetector(
                   onTap: (){
                     FirebaseAuth.instance.createUserWithEmailAndPassword(
                         email: emailController.text,
                         password: passwordController.text
-                    ).then((value){
-                      print("Create a new account");
+                    );
+                    addUserDetails(
+                      firstNameController.text,
+                      lastNameController.text,
+                      int.parse(ageController.text),
+                      emailController.text
+                    );
+
                       Navigator.push(context, MaterialPageRoute(
                           builder: (context) => HomePage()));
-                    }).onError((error, stackTrace) {
-                      print("Error ${error.toString()}");
 
-                    });
                   },
                   child: Container(
                     width: double.infinity,

@@ -10,6 +10,7 @@ class TextFormChatter extends StatelessWidget {
   }): super(key: key);
 
   final TextEditingController controller;
+
   final String text;
   final TextInputType textInputType;
   final bool obscure;
